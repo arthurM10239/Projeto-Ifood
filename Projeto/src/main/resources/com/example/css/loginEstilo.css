@@ -1,0 +1,97 @@
+
+.fundo-titulo{
+    -fx-background-color: #0000006b;
+    -fx-background-radius: 10px;
+}
+
+.tela-usuario{
+    -fx-background-color: #a30000;
+}
+
+.tela-total{
+    -fx-background-color: #be0101;
+    -fx-border-color: #e0e0e0; 
+}
+
+.txtfield-designer{
+    -fx-text-fill: white;
+    -fx-background-color: #8d0d0d;
+    -fx-background-radius: 5px;
+    -fx-border-color: #e0e0e0; 
+    -fx-border-radius: 5px;
+    -fx-effect: dropshadow( three-pass-box , rgba(34, 32, 32, 0.733) , 5, 0.0 , 0 , 1 );
+}
+
+.txtConta{
+    -fx-background-color: #a82020;
+    -fx-background-radius: 8px;
+}
+
+.checkBox-desginer .box {
+    -fx-background-color: #000000;
+    -fx-background-radius: 5px;
+    -fx-border-color: #e0e0e0; 
+    -fx-border-radius: 5px;
+}
+.checkBox-desginer:selected .mark{
+    -fx-background-color: #ffffff;
+}
+
+.botao-criar-conta{
+    -fx-background-color:rgba(26, 26, 26, 0.692);
+    -fx-background-radius: 12px; 
+    -fx-text-fill: #ffffff; 
+    -fx-font-size: 12px;
+    -fx-effect: dropshadow( three-pass-box , rgba(34, 32, 32, 0.733) , 5, 0.0 , 0 , 1 );
+}
+.botao-criar-conta:hover{
+    -fx-background-color:rgba(88, 88, 88, 0.733);
+    -fx-text-fill: #ffffff; 
+}
+
+.botao-entrar-conta{
+    -fx-background-color:rgba(26, 26, 26, 0.692);
+    -fx-background-radius: 12px; 
+    -fx-text-fill: #ffffff; 
+    -fx-font-size: 12px;
+    -fx-effect: dropshadow( three-pass-box , rgba(34, 32, 32, 0.733) , 5, 0.0 , 0 , 1 );
+}
+.botao-entrar-conta:hover{
+    -fx-background-color:rgba(88, 88, 88, 0.733);
+    -fx-text-fill: #ffffff; 
+
+}
+
+.tela-Aviso{
+    -fx-background-color:rgba(95, 95, 95, 0.966);
+    -fx-background-radius: 12px; 
+    -fx-border-color: #474747; 
+    -fx-border-radius: 12px;
+    -fx-effect: dropshadow( three-pass-box , rgba(34, 32, 32, 0.733) , 5, 0.0 , 0 , 1 );
+}
+.botao-fechar-aviso{
+    -fx-background-color:rgba(206, 206, 206, 0.719);
+    -fx-background-radius: 8px; 
+}
+.botao-fechar-aviso:hover{
+    -fx-background-color:rgba(206, 206, 206, 0.938);
+}
+.titulo-tela-aviso{
+    -fx-background-color:rgba(206, 206, 206, 0.877);
+    -fx-background-radius: 8px; 
+}
+.txt-erro-aviso{
+    -fx-background-color:rgba(206, 206, 206, 0.966);
+    -fx-background-radius: 8px; 
+}
+
+
+.botoes-fechar-aba{
+    -fx-background-color:rgba(0, 0, 0, 0.966);
+    -fx-background-radius: 8px; 
+}
+
+.tela-codigo-confirmacao{
+    -fx-background-color:rgba(163, 188, 194, 0.966);
+    -fx-background-radius: 8px; 
+}

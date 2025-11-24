@@ -1,0 +1,35 @@
+.tela-total{
+    -fx-background-color: #303030;
+}
+.fundo-titulo{
+    -fx-background-color: #4646469a;
+    -fx-background-radius:8px;
+    -fx-effect: dropshadow( three-pass-box , rgba(0, 0, 0, 0.76) , 10, 0.0 , 0 , 1 );
+}
+
+.menu-lateral{
+    -fx-background-color:rgba(255, 0, 0, 0.842);
+    -fx-background-radius:8px;
+    -fx-effect: dropshadow( three-pass-box , rgba(0, 0, 0, 0.76) , 10, 0.0 , 0 , 1 );
+}
+.sair-da-conta{
+    -fx-border-color:rgba(0, 0, 0, 0.836);
+    -fx-border-width:0 0 2 0;
+}
+
+.botoes-fechar-aba{
+    -fx-background-color:rgba(0, 0, 0, 0.966);
+    -fx-background-radius: 8px; 
+    -fx-effect: dropshadow( three-pass-box , rgba(0, 0, 0, 0.76) , 10, 0.0 , 0 , 1 );
+}
+
+.exposicao-restaurante{
+    -fx-background-color:rgb(233, 13, 13);
+    -fx-background-radius:8;
+}
+.info-menu-lateral{
+    -fx-border-color:rgba(26, 26, 26, 0.836);
+    -fx-border-width:0 1 2 1;
+}
+
+
