@@ -17,7 +17,7 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         primaryStage = stage;
         stage.initStyle(StageStyle.UNDECORATED);
-        scene = new Scene(loadFXML("AbaInicial"));
+        scene = new Scene(loadFXML("Login_tela"));
         stage.setResizable(true);
         stage.setScene(scene);
         stage.sizeToScene();
@@ -27,6 +27,12 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml + ".fxml"));
         Parent root = fxmlLoader.load();
         scene.setRoot(root);
+
+        if (primaryStage != null) {
+            primaryStage.sizeToScene();
+            primaryStage.centerOnScreen(); // Opcional, mas útil para centralizar
+        }
+
         return fxmlLoader.getController(); // Retorna o Controller
     }
     private static Parent loadFXML(String fxml) throws IOException {
@@ -37,8 +43,29 @@ public class Main extends Application {
         return primaryStage;
     }
 
+    public static void abrirLogin() throws IOException {
+        
+        Stage newStage = new Stage();
+        primaryStage = newStage; 
+        newStage.initStyle(StageStyle.UNDECORATED); 
+        Parent root = loadFXML("Login_tela");
+        
+        if (scene == null) {
+            scene = new Scene(root);
+        } else {
+            scene.setRoot(root); 
+        }
+        
+        newStage.setResizable(true);
+        newStage.setScene(scene); 
+        newStage.sizeToScene();
+        newStage.centerOnScreen();
+        newStage.show();
+
+    }
+
     public static void main(String[] args) {
         launch();
     }
 
-}
+}   

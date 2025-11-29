@@ -124,4 +124,20 @@ public class RestaurantesDB {
         return 0; 
     }
 
+    public int buscarModificacaoQuantPratos() {
+        String sql = "SELECT COUNT(*) AS total_pratos FROM pratos";
+            
+        try (Connection conn = ConexaoDB.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery()) {
+
+            if (rs.next()) {
+                return rs.getInt("total_pratos");
+            }
+        } catch (SQLException e) {
+            System.err.println("Erro ao buscar contagem de pratos: " + e.getMessage());
+        }
+
+        return 0; 
+    }
 }

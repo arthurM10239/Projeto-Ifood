@@ -12,14 +12,14 @@
 
 <Pane fx:id="painelMae" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="tela-total" stylesheets="@css/abaInicialEstilo.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.abaInicial.TelaInicialConfig">
    <children>
-      <Pane id="restaurante-Item" layoutX="50.0" layoutY="100.0" prefHeight="470.0" prefWidth="700.0" styleClass="exposicao-restaurante">
+      <Pane id="restaurante-Item" layoutX="50.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" styleClass="exposicao-restaurante">
          <children>
             <Label id="Nome" alignment="CENTER" layoutX="-1.0" layoutY="14.0" prefHeight="17.0" prefWidth="200.0" text="rest" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="12.0" />
                </font>
             </Label>
-            <ImageView id="btt-vizualizar-rest" fitHeight="17.0" fitWidth="20.0" layoutX="677.0" layoutY="448.0" onMouseClicked="#vizualizarRestaurante" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="btt-vizualizar-rest" fitHeight="17.0" fitWidth="20.0" layoutX="176.0" layoutY="178.0" onMouseClicked="#vizualizarRestaurante" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Imagens/botaoVizuRestaurante.png" />
                </image>
@@ -75,14 +75,14 @@
                   <Font name="Arial Black" size="12.0" />
                </font>
             </Label>
-            <Label id="TipoDePratos" alignment="CENTER" layoutX="-1.0" layoutY="117.0" prefHeight="17.0" prefWidth="200.0" text="Tipo De Pratos" textFill="WHITE">
+            <Label id="TipoDePratos" alignment="TOP_CENTER" layoutX="1.0" layoutY="117.0" prefHeight="47.0" prefWidth="200.0" text="Tipos De Prato: &#10;a" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="Arial Black" size="12.0" />
                </font>
             </Label>
-            <Pane id="painel-produtos" layoutX="188.0" layoutY="7.0" prefHeight="455.0" prefWidth="450.0" styleClass="painel-de-produtos">
+            <Pane id="painel-produtos" layoutX="188.0" layoutY="7.0" prefHeight="0.0" prefWidth="0.0" styleClass="painel-de-produtos" visible="false">
                <children>
-                  <Pane id="produto-item" layoutX="15.0" layoutY="5.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao">
+                  <Pane id="produto-item" layoutX="15.0" layoutY="5.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -126,7 +126,7 @@
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="165.0" layoutY="5.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao">
+                  <Pane id="produto-item" layoutX="165.0" layoutY="5.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -170,7 +170,7 @@
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="315.0" layoutY="5.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao">
+                  <Pane id="produto-item" layoutX="315.0" layoutY="5.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -214,7 +214,7 @@
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="15.0" layoutY="155.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao">
+                  <Pane id="produto-item" layoutX="15.0" layoutY="155.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -258,7 +258,7 @@
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="165.0" layoutY="155.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao">
+                  <Pane id="produto-item" layoutX="165.0" layoutY="155.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -302,7 +302,7 @@
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="315.0" layoutY="155.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao">
+                  <Pane id="produto-item" layoutX="315.0" layoutY="155.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -346,7 +346,7 @@
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="15.0" layoutY="305.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao">
+                  <Pane id="produto-item" layoutX="15.0" layoutY="305.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -390,7 +390,7 @@
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="165.0" layoutY="305.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao">
+                  <Pane id="produto-item" layoutX="165.0" layoutY="305.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -434,7 +434,7 @@
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="315.0" layoutY="305.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao">
+                  <Pane id="produto-item" layoutX="315.0" layoutY="305.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -482,7 +482,477 @@
             </Pane>
          </children>
       </Pane>
-      <Pane id="restaurante-Item" layoutX="300.0" layoutY="111.0" prefHeight="200.0" prefWidth="200.0" styleClass="exposicao-restaurante" visible="false">
+      <Pane id="restaurante-Item" layoutX="300.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" styleClass="exposicao-restaurante">
+         <children>
+            <Label id="Nome" alignment="CENTER" layoutX="-1.0" layoutY="14.0" prefHeight="17.0" prefWidth="200.0" text="rest" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <ImageView id="btt-vizualizar-rest" fitHeight="17.0" fitWidth="20.0" layoutX="176.0" layoutY="178.0" onMouseClicked="#vizualizarRestaurante" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Imagens/botaoVizuRestaurante.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <HBox id="Estrelas" layoutX="48.0" layoutY="38.0" prefHeight="31.0" prefWidth="105.0">
+               <children>
+                  <ImageView fitHeight="19.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Imagens/estrelaVazia.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="19.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Imagens/estrelaVazia.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="19.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Imagens/estrelaVazia.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="19.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Imagens/estrelaVazia.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="19.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Imagens/estrelaVazia.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <VBox alignment="TOP_CENTER" layoutX="56.0" layoutY="59.0" prefHeight="41.0" prefWidth="85.0">
+               <children>
+                  <Label id="QuantAval" alignment="CENTER" prefHeight="15.0" text="0 Avaliações" textFill="#f1ff00">
+                     <font>
+                        <Font name="Arial Black" size="10.0" />
+                     </font>
+                  </Label>
+                  <Label id="AvalMedia" alignment="CENTER" prefHeight="15.0" prefWidth="90.0" text="0.00" textFill="#f1ff00">
+                     <font>
+                        <Font name="Arial Black" size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <Label id="Dono" layoutX="46.0" layoutY="100.0" prefHeight="17.0" prefWidth="105.0" text="Dono: " textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label id="TipoDePratos" alignment="CENTER" layoutY="117.0" prefHeight="17.0" prefWidth="200.0" text="Tipo De Pratos" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Pane id="painel-produtos" layoutX="188.0" layoutY="7.0" prefHeight="0.0" prefWidth="0.0" styleClass="painel-de-produtos" visible="false">
+               <children>
+                  <Pane id="produto-item" layoutX="15.0" layoutY="5.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                     <children>
+                        <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic" size="12.0" />
+                           </font>
+                        </Label>
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                           <children>
+                              <Label text="R$" textFill="WHITE">
+                                 <font>
+                                    <Font name="Britannic Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label id="valor-Real" text="---" textFill="WHITE">
+                                 <font>
+                                    <Font name="ArtifaktElement-Black" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label id="valor-centavo" text="--" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane id="produto-item" layoutX="165.0" layoutY="5.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                     <children>
+                        <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic" size="12.0" />
+                           </font>
+                        </Label>
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                           <children>
+                              <Label text="R$" textFill="WHITE">
+                                 <font>
+                                    <Font name="Britannic Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label id="valor-Real" text="---" textFill="WHITE">
+                                 <font>
+                                    <Font name="ArtifaktElement-Black" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label id="valor-centavo" text="--" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane id="produto-item" layoutX="315.0" layoutY="5.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                     <children>
+                        <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic" size="12.0" />
+                           </font>
+                        </Label>
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                           <children>
+                              <Label text="R$" textFill="WHITE">
+                                 <font>
+                                    <Font name="Britannic Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label id="valor-Real" text="---" textFill="WHITE">
+                                 <font>
+                                    <Font name="ArtifaktElement-Black" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label id="valor-centavo" text="--" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane id="produto-item" layoutX="15.0" layoutY="155.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                     <children>
+                        <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic" size="12.0" />
+                           </font>
+                        </Label>
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                           <children>
+                              <Label text="R$" textFill="WHITE">
+                                 <font>
+                                    <Font name="Britannic Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label id="valor-Real" text="---" textFill="WHITE">
+                                 <font>
+                                    <Font name="ArtifaktElement-Black" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label id="valor-centavo" text="--" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane id="produto-item" layoutX="165.0" layoutY="155.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                     <children>
+                        <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic" size="12.0" />
+                           </font>
+                        </Label>
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                           <children>
+                              <Label text="R$" textFill="WHITE">
+                                 <font>
+                                    <Font name="Britannic Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label id="valor-Real" text="---" textFill="WHITE">
+                                 <font>
+                                    <Font name="ArtifaktElement-Black" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label id="valor-centavo" text="--" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane id="produto-item" layoutX="315.0" layoutY="155.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                     <children>
+                        <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic" size="12.0" />
+                           </font>
+                        </Label>
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                           <children>
+                              <Label text="R$" textFill="WHITE">
+                                 <font>
+                                    <Font name="Britannic Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label id="valor-Real" text="---" textFill="WHITE">
+                                 <font>
+                                    <Font name="ArtifaktElement-Black" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label id="valor-centavo" text="--" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane id="produto-item" layoutX="15.0" layoutY="305.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                     <children>
+                        <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic" size="12.0" />
+                           </font>
+                        </Label>
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                           <children>
+                              <Label text="R$" textFill="WHITE">
+                                 <font>
+                                    <Font name="Britannic Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label id="valor-Real" text="---" textFill="WHITE">
+                                 <font>
+                                    <Font name="ArtifaktElement-Black" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label id="valor-centavo" text="--" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane id="produto-item" layoutX="165.0" layoutY="305.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                     <children>
+                        <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic" size="12.0" />
+                           </font>
+                        </Label>
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                           <children>
+                              <Label text="R$" textFill="WHITE">
+                                 <font>
+                                    <Font name="Britannic Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label id="valor-Real" text="---" textFill="WHITE">
+                                 <font>
+                                    <Font name="ArtifaktElement-Black" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label id="valor-centavo" text="--" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane id="produto-item" layoutX="315.0" layoutY="305.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                     <children>
+                        <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic" size="12.0" />
+                           </font>
+                        </Label>
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                           <children>
+                              <Label text="R$" textFill="WHITE">
+                                 <font>
+                                    <Font name="Britannic Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label id="valor-Real" text="---" textFill="WHITE">
+                                 <font>
+                                    <Font name="ArtifaktElement-Black" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label id="valor-centavo" text="--" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane id="restaurante-Item" layoutX="550.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" styleClass="exposicao-restaurante">
          <children>
             <Label id="Nome" alignment="CENTER" layoutX="-1.0" layoutY="14.0" prefHeight="17.0" prefWidth="200.0" text="rest" textFill="WHITE">
                <font>
@@ -552,7 +1022,7 @@
             </Label>
             <Pane id="painel-produtos" layoutX="188.0" layoutY="7.0" prefHeight="0.0" prefWidth="0.0" styleClass="painel-de-produtos" visible="false">
                <children>
-                  <Pane id="produto-item" layoutX="15.0" layoutY="5.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="15.0" layoutY="5.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -560,7 +1030,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -579,14 +1049,24 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="165.0" layoutY="5.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="165.0" layoutY="5.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -594,7 +1074,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -613,14 +1093,24 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="315.0" layoutY="5.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="315.0" layoutY="5.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -628,7 +1118,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -647,14 +1137,24 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="15.0" layoutY="150.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="15.0" layoutY="155.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -662,7 +1162,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -681,14 +1181,24 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="166.0" layoutY="150.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="165.0" layoutY="155.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -696,7 +1206,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -715,14 +1225,24 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="316.0" layoutY="150.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="315.0" layoutY="155.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -730,7 +1250,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -749,14 +1269,24 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="16.0" layoutY="295.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="15.0" layoutY="305.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -764,7 +1294,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -783,14 +1313,24 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="167.0" layoutY="295.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="165.0" layoutY="305.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -798,7 +1338,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -817,14 +1357,24 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="317.0" layoutY="295.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="315.0" layoutY="305.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -832,7 +1382,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -851,9 +1401,19 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
@@ -862,7 +1422,7 @@
             </Pane>
          </children>
       </Pane>
-      <Pane id="restaurante-Item" layoutX="550.0" layoutY="111.0" prefHeight="200.0" prefWidth="200.0" styleClass="exposicao-restaurante" visible="false">
+      <Pane id="restaurante-Item" layoutX="50.0" layoutY="351.0" prefHeight="200.0" prefWidth="200.0" styleClass="exposicao-restaurante">
          <children>
             <Label id="Nome" alignment="CENTER" layoutX="-1.0" layoutY="14.0" prefHeight="17.0" prefWidth="200.0" text="rest" textFill="WHITE">
                <font>
@@ -932,7 +1492,7 @@
             </Label>
             <Pane id="painel-produtos" layoutX="188.0" layoutY="7.0" prefHeight="0.0" prefWidth="0.0" styleClass="painel-de-produtos" visible="false">
                <children>
-                  <Pane id="produto-item" layoutX="15.0" layoutY="5.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="15.0" layoutY="5.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -940,7 +1500,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -959,14 +1519,24 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="165.0" layoutY="5.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="165.0" layoutY="5.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -974,7 +1544,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -993,14 +1563,24 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="315.0" layoutY="5.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="315.0" layoutY="5.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -1008,7 +1588,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -1027,14 +1607,24 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="15.0" layoutY="150.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="15.0" layoutY="155.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -1042,7 +1632,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -1061,14 +1651,24 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="166.0" layoutY="150.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="165.0" layoutY="155.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -1076,7 +1676,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -1095,14 +1695,24 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="316.0" layoutY="150.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="315.0" layoutY="155.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -1110,7 +1720,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -1129,14 +1739,24 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="16.0" layoutY="295.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="15.0" layoutY="305.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -1144,7 +1764,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -1163,14 +1783,24 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="167.0" layoutY="295.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="165.0" layoutY="305.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -1178,7 +1808,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -1197,14 +1827,24 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="317.0" layoutY="295.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="315.0" layoutY="305.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -1212,7 +1852,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -1231,9 +1871,19 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
@@ -1242,7 +1892,7 @@
             </Pane>
          </children>
       </Pane>
-      <Pane id="restaurante-Item" layoutX="50.0" layoutY="351.0" prefHeight="200.0" prefWidth="200.0" styleClass="exposicao-restaurante" visible="false">
+      <Pane id="restaurante-Item" layoutX="300.0" layoutY="351.0" prefHeight="200.0" prefWidth="200.0" styleClass="exposicao-restaurante">
          <children>
             <Label id="Nome" alignment="CENTER" layoutX="-1.0" layoutY="14.0" prefHeight="17.0" prefWidth="200.0" text="rest" textFill="WHITE">
                <font>
@@ -1312,7 +1962,7 @@
             </Label>
             <Pane id="painel-produtos" layoutX="188.0" layoutY="7.0" prefHeight="0.0" prefWidth="0.0" styleClass="painel-de-produtos" visible="false">
                <children>
-                  <Pane id="produto-item" layoutX="15.0" layoutY="5.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="15.0" layoutY="5.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -1320,7 +1970,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -1339,14 +1989,24 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="165.0" layoutY="5.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="165.0" layoutY="5.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -1354,7 +2014,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -1373,14 +2033,24 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="315.0" layoutY="5.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="315.0" layoutY="5.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -1388,7 +2058,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -1407,14 +2077,24 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="15.0" layoutY="150.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="15.0" layoutY="155.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -1422,7 +2102,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -1441,14 +2121,24 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="166.0" layoutY="150.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="165.0" layoutY="155.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -1456,7 +2146,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -1475,14 +2165,24 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="316.0" layoutY="150.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="315.0" layoutY="155.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -1490,7 +2190,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -1509,14 +2209,24 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="16.0" layoutY="295.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="15.0" layoutY="305.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -1524,7 +2234,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -1543,14 +2253,24 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="167.0" layoutY="295.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="165.0" layoutY="305.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -1558,7 +2278,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -1577,14 +2297,24 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="317.0" layoutY="295.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="315.0" layoutY="305.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -1592,7 +2322,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -1611,9 +2341,19 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
@@ -1622,7 +2362,7 @@
             </Pane>
          </children>
       </Pane>
-      <Pane id="restaurante-Item" layoutX="300.0" layoutY="351.0" prefHeight="200.0" prefWidth="200.0" styleClass="exposicao-restaurante" visible="false">
+      <Pane id="restaurante-Item" layoutX="550.0" layoutY="351.0" prefHeight="200.0" prefWidth="200.0" styleClass="exposicao-restaurante">
          <children>
             <Label id="Nome" alignment="CENTER" layoutX="-1.0" layoutY="14.0" prefHeight="17.0" prefWidth="200.0" text="rest" textFill="WHITE">
                <font>
@@ -1692,7 +2432,7 @@
             </Label>
             <Pane id="painel-produtos" layoutX="188.0" layoutY="7.0" prefHeight="0.0" prefWidth="0.0" styleClass="painel-de-produtos" visible="false">
                <children>
-                  <Pane id="produto-item" layoutX="15.0" layoutY="5.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="15.0" layoutY="5.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -1700,7 +2440,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -1719,14 +2459,24 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="165.0" layoutY="5.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="165.0" layoutY="5.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -1734,7 +2484,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -1753,14 +2503,24 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="315.0" layoutY="5.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="315.0" layoutY="5.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -1768,7 +2528,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -1787,14 +2547,24 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="15.0" layoutY="150.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="15.0" layoutY="155.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -1802,7 +2572,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -1821,14 +2591,24 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="166.0" layoutY="150.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="165.0" layoutY="155.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -1836,7 +2616,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -1855,14 +2635,24 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="316.0" layoutY="150.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="315.0" layoutY="155.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -1870,7 +2660,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -1889,14 +2679,24 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="16.0" layoutY="295.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="15.0" layoutY="305.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -1904,7 +2704,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -1923,14 +2723,24 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="167.0" layoutY="295.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="165.0" layoutY="305.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -1938,7 +2748,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -1957,14 +2767,24 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane id="produto-item" layoutX="317.0" layoutY="295.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
+                  <Pane id="produto-item" layoutX="315.0" layoutY="305.0" prefHeight="145.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
                      <children>
                         <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
                         <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
@@ -1972,7 +2792,7 @@
                               <Font name="Century Gothic" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
+                        <HBox id="preco-bloco" alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
                            <children>
                               <Label text="R$" textFill="WHITE">
                                  <font>
@@ -1991,389 +2811,19 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="47.0" prefWidth="105.0" text="Descrição: aaa&#10;aaaaaaaaaaaa&#10;aaaaaaaaaaaa&#10;" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Century Gothic" size="11.0" />
                            </font>
                         </Label>
-                     </children>
-                  </Pane>
-               </children>
-            </Pane>
-         </children>
-      </Pane>
-      <Pane id="restaurante-Item" layoutX="550.0" layoutY="351.0" prefHeight="200.0" prefWidth="200.0" styleClass="exposicao-restaurante" visible="false">
-         <children>
-            <Label id="Nome" alignment="CENTER" layoutX="-1.0" layoutY="14.0" prefHeight="17.0" prefWidth="200.0" text="rest" textFill="WHITE">
-               <font>
-                  <Font name="Arial Black" size="12.0" />
-               </font>
-            </Label>
-            <ImageView id="btt-vizualizar-rest" fitHeight="17.0" fitWidth="20.0" layoutX="176.0" layoutY="178.0" onMouseClicked="#vizualizarRestaurante" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../Imagens/botaoVizuRestaurante.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
-            <HBox id="Estrelas" layoutX="48.0" layoutY="38.0" prefHeight="31.0" prefWidth="105.0">
-               <children>
-                  <ImageView fitHeight="19.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../Imagens/estrelaVazia.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="19.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../Imagens/estrelaVazia.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="19.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../Imagens/estrelaVazia.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="19.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../Imagens/estrelaVazia.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="19.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../Imagens/estrelaVazia.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </HBox>
-            <VBox alignment="TOP_CENTER" layoutX="56.0" layoutY="59.0" prefHeight="41.0" prefWidth="85.0">
-               <children>
-                  <Label id="QuantAval" alignment="CENTER" prefHeight="15.0" text="0 Avaliações" textFill="#f1ff00">
-                     <font>
-                        <Font name="Arial Black" size="10.0" />
-                     </font>
-                  </Label>
-                  <Label id="AvalMedia" alignment="CENTER" prefHeight="15.0" prefWidth="90.0" text="0.00" textFill="#f1ff00">
-                     <font>
-                        <Font name="Arial Black" size="10.0" />
-                     </font>
-                  </Label>
-               </children>
-            </VBox>
-            <Label id="Dono" layoutX="46.0" layoutY="100.0" prefHeight="17.0" prefWidth="105.0" text="Dono: " textFill="WHITE">
-               <font>
-                  <Font name="Arial Black" size="12.0" />
-               </font>
-            </Label>
-            <Label id="TipoDePratos" alignment="CENTER" layoutX="-1.0" layoutY="117.0" prefHeight="17.0" prefWidth="200.0" text="Tipo De Pratos" textFill="WHITE">
-               <font>
-                  <Font name="Arial Black" size="12.0" />
-               </font>
-            </Label>
-            <Pane id="painel-produtos" layoutX="188.0" layoutY="7.0" prefHeight="0.0" prefWidth="0.0" styleClass="painel-de-produtos" visible="false">
-               <children>
-                  <Pane id="produto-item" layoutX="15.0" layoutY="5.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
-                     <children>
-                        <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
+                        <Label id="comprar" alignment="CENTER" layoutX="114.0" layoutY="159.0" prefHeight="22.0" prefWidth="70.0" styleClass="btt-comprar" text="Comprar" textFill="WHITE" visible="false">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Arial Black" size="12.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
-                           <children>
-                              <Label text="R$" textFill="WHITE">
-                                 <font>
-                                    <Font name="Britannic Bold" size="17.0" />
-                                 </font>
-                              </Label>
-                              <Label id="valor-Real" text="---" textFill="WHITE">
-                                 <font>
-                                    <Font name="ArtifaktElement-Black" size="17.0" />
-                                 </font>
-                              </Label>
-                              <Label id="valor-centavo" text="--" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
+                        <Label id="add-sacola" alignment="CENTER" layoutX="5.0" layoutY="151.0" prefHeight="37.0" prefWidth="94.0" styleClass="btt-adicionar-na-sacola" text="Adicionar na &#10;     Sacola&#10;" textFill="WHITE" visible="false">
                            <font>
-                              <Font name="Century Gothic" size="12.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane id="produto-item" layoutX="165.0" layoutY="5.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
-                     <children>
-                        <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
-                           <font>
-                              <Font name="Century Gothic" size="12.0" />
-                           </font>
-                        </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
-                           <children>
-                              <Label text="R$" textFill="WHITE">
-                                 <font>
-                                    <Font name="Britannic Bold" size="17.0" />
-                                 </font>
-                              </Label>
-                              <Label id="valor-Real" text="---" textFill="WHITE">
-                                 <font>
-                                    <Font name="ArtifaktElement-Black" size="17.0" />
-                                 </font>
-                              </Label>
-                              <Label id="valor-centavo" text="--" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
-                           <font>
-                              <Font name="Century Gothic" size="12.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane id="produto-item" layoutX="315.0" layoutY="5.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
-                     <children>
-                        <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
-                           <font>
-                              <Font name="Century Gothic" size="12.0" />
-                           </font>
-                        </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
-                           <children>
-                              <Label text="R$" textFill="WHITE">
-                                 <font>
-                                    <Font name="Britannic Bold" size="17.0" />
-                                 </font>
-                              </Label>
-                              <Label id="valor-Real" text="---" textFill="WHITE">
-                                 <font>
-                                    <Font name="ArtifaktElement-Black" size="17.0" />
-                                 </font>
-                              </Label>
-                              <Label id="valor-centavo" text="--" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
-                           <font>
-                              <Font name="Century Gothic" size="12.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane id="produto-item" layoutX="15.0" layoutY="150.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
-                     <children>
-                        <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
-                           <font>
-                              <Font name="Century Gothic" size="12.0" />
-                           </font>
-                        </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
-                           <children>
-                              <Label text="R$" textFill="WHITE">
-                                 <font>
-                                    <Font name="Britannic Bold" size="17.0" />
-                                 </font>
-                              </Label>
-                              <Label id="valor-Real" text="---" textFill="WHITE">
-                                 <font>
-                                    <Font name="ArtifaktElement-Black" size="17.0" />
-                                 </font>
-                              </Label>
-                              <Label id="valor-centavo" text="--" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
-                           <font>
-                              <Font name="Century Gothic" size="12.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane id="produto-item" layoutX="166.0" layoutY="150.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
-                     <children>
-                        <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
-                           <font>
-                              <Font name="Century Gothic" size="12.0" />
-                           </font>
-                        </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
-                           <children>
-                              <Label text="R$" textFill="WHITE">
-                                 <font>
-                                    <Font name="Britannic Bold" size="17.0" />
-                                 </font>
-                              </Label>
-                              <Label id="valor-Real" text="---" textFill="WHITE">
-                                 <font>
-                                    <Font name="ArtifaktElement-Black" size="17.0" />
-                                 </font>
-                              </Label>
-                              <Label id="valor-centavo" text="--" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
-                           <font>
-                              <Font name="Century Gothic" size="12.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane id="produto-item" layoutX="316.0" layoutY="150.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
-                     <children>
-                        <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
-                           <font>
-                              <Font name="Century Gothic" size="12.0" />
-                           </font>
-                        </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
-                           <children>
-                              <Label text="R$" textFill="WHITE">
-                                 <font>
-                                    <Font name="Britannic Bold" size="17.0" />
-                                 </font>
-                              </Label>
-                              <Label id="valor-Real" text="---" textFill="WHITE">
-                                 <font>
-                                    <Font name="ArtifaktElement-Black" size="17.0" />
-                                 </font>
-                              </Label>
-                              <Label id="valor-centavo" text="--" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
-                           <font>
-                              <Font name="Century Gothic" size="12.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane id="produto-item" layoutX="16.0" layoutY="295.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
-                     <children>
-                        <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
-                           <font>
-                              <Font name="Century Gothic" size="12.0" />
-                           </font>
-                        </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
-                           <children>
-                              <Label text="R$" textFill="WHITE">
-                                 <font>
-                                    <Font name="Britannic Bold" size="17.0" />
-                                 </font>
-                              </Label>
-                              <Label id="valor-Real" text="---" textFill="WHITE">
-                                 <font>
-                                    <Font name="ArtifaktElement-Black" size="17.0" />
-                                 </font>
-                              </Label>
-                              <Label id="valor-centavo" text="--" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
-                           <font>
-                              <Font name="Century Gothic" size="12.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane id="produto-item" layoutX="167.0" layoutY="295.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
-                     <children>
-                        <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
-                           <font>
-                              <Font name="Century Gothic" size="12.0" />
-                           </font>
-                        </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
-                           <children>
-                              <Label text="R$" textFill="WHITE">
-                                 <font>
-                                    <Font name="Britannic Bold" size="17.0" />
-                                 </font>
-                              </Label>
-                              <Label id="valor-Real" text="---" textFill="WHITE">
-                                 <font>
-                                    <Font name="ArtifaktElement-Black" size="17.0" />
-                                 </font>
-                              </Label>
-                              <Label id="valor-centavo" text="--" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
-                           <font>
-                              <Font name="Century Gothic" size="12.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane id="produto-item" layoutX="317.0" layoutY="295.0" prefHeight="135.0" prefWidth="120.0" styleClass="produto-padrao" visible="false">
-                     <children>
-                        <ImageView id="imagem-produto" fitHeight="53.0" fitWidth="52.0" layoutX="34.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label id="nome-produto" alignment="CENTER" layoutX="2.0" layoutY="50.0" prefHeight="17.0" prefWidth="115.0" text="nome" textFill="WHITE">
-                           <font>
-                              <Font name="Century Gothic" size="12.0" />
-                           </font>
-                        </Label>
-                        <HBox alignment="CENTER" layoutX="1.0" layoutY="65.0" prefHeight="26.0" prefWidth="121.0">
-                           <children>
-                              <Label text="R$" textFill="WHITE">
-                                 <font>
-                                    <Font name="Britannic Bold" size="17.0" />
-                                 </font>
-                              </Label>
-                              <Label id="valor-Real" text="---" textFill="WHITE">
-                                 <font>
-                                    <Font name="ArtifaktElement-Black" size="17.0" />
-                                 </font>
-                              </Label>
-                              <Label id="valor-centavo" text="--" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <Label id="descricao" alignment="TOP_LEFT" layoutX="8.0" layoutY="93.0" prefHeight="42.0" prefWidth="105.0" text="Descrição: &#10;" textFill="WHITE">
-                           <font>
-                              <Font name="Century Gothic" size="12.0" />
+                              <Font name="Arial Black" size="11.0" />
                            </font>
                         </Label>
                      </children>
@@ -2382,7 +2832,6 @@
             </Pane>
          </children>
       </Pane>
-      <Pane fx:id="LateralSacola" layoutX="799.0" layoutY="50.0" prefHeight="550.0" prefWidth="0.0" styleClass="aba-sacola-produto" />
       <Pane fx:id="SacolaProdutos" layoutX="693.0" layoutY="57.0" onMouseClicked="#abrirSacolaProdutos" prefHeight="41.0" prefWidth="100.0" styleClass="sacola-compras">
          <children>
             <ImageView fitHeight="32.0" fitWidth="20.0" layoutX="61.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
@@ -2405,6 +2854,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Pane>
+      <Pane id="sacola-produtos" fx:id="LateralSacola" layoutX="799.0" layoutY="50.0" prefHeight="550.0" prefWidth="0.0" styleClass="aba-sacola-produto" />
       <Pane layoutY="-11.0" prefHeight="61.0" prefWidth="800.0" styleClass="fundo-titulo" />
       <Pane fx:id="painelLateralAnimado" layoutX="3.0" layoutY="2.0" prefHeight="40.0" prefWidth="40.0" styleClass="menu-lateral">
          <children>

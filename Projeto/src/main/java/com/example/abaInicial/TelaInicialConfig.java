@@ -1,4 +1,5 @@
 package com.example.abaInicial;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Set;
 
@@ -16,6 +17,8 @@ import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -27,6 +30,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 public class TelaInicialConfig implements Initializable{
@@ -63,11 +67,15 @@ public class TelaInicialConfig implements Initializable{
     @FXML
     private Usuario usuarioAcessando;
 
+    Timeline attBancoDeDados = new Timeline();
     RestaurantesDB BancoDadosRestaurantes = new RestaurantesDB();
+    private Set<Node> listaBlocosRestaurantes;
+    private SacolaDeProdutos sacolaDeProdutos = new SacolaDeProdutos();
     private long lastCheckTime = 0;
     private int quantRest = 0;
+    private int quantPratos = 0;
 
-
+    private double atualizacaoDB = 5;
     private boolean[] isExpandido = new boolean[3];
 
 
@@ -76,10 +84,12 @@ public class TelaInicialConfig implements Initializable{
 
     @Override
     public void initialize(java.net.URL location, java.util.ResourceBundle resources) {
+        listaBlocosRestaurantes = painelMae.lookupAll("#restaurante-Item");
+        atualizacaoDB = 0.5;
         adicionarMonitorDeAltura();
         transicaoCor(SacolaProdutos,200);
         botaoSairConta(bttSairConta,200);
-        verificarEAtualizar();
+        //verificarEAtualizar();
         atualizarInfos();
         expandirProduto();
         
@@ -90,24 +100,30 @@ public class TelaInicialConfig implements Initializable{
     //Informações Restaurante
     void atualizarInfos(){
         definirInfoRestaurante();
-        Timeline timeline = new Timeline(
-            new KeyFrame(Duration.seconds(5), event -> {
+        attBancoDeDados = new Timeline(
+            new KeyFrame(Duration.seconds(atualizacaoDB), event -> {
                 verificarEAtualizar();
             })
         );
-        timeline.setCycleCount(Timeline.INDEFINITE); // Rodar infinitamente
-        timeline.play();
+        atualizacaoDB = 5;
+        attBancoDeDados.setCycleCount(Timeline.INDEFINITE); // Rodar infinitamente
+        attBancoDeDados.play();
     }
     void verificarEAtualizar(){
+
         long currentDbTime = BancoDadosRestaurantes.buscarUltimaModificacao();
         int currentCont = BancoDadosRestaurantes.buscarModificacaoQuantRest();
+        int currentContProdutos = BancoDadosRestaurantes.buscarModificacaoQuantPratos();
         
-        if (currentDbTime > lastCheckTime || currentCont != quantRest) {
+        if (currentDbTime > lastCheckTime || currentCont != quantRest || currentContProdutos != quantPratos) {
+
             System.out.println("Atualizando Dados");
             definirInfoRestaurante();
             
             lastCheckTime = currentDbTime;
             quantRest = currentCont;
+            quantPratos = currentContProdutos;
+            
         }
         
     }
@@ -116,9 +132,8 @@ public class TelaInicialConfig implements Initializable{
         ArrayList<Restaurante> restaurantes = BancoDadosRestaurantes.buscarInfoRestaurante();
 
         int cont = 0;
-        Set<Node> todosRest = painelMae.lookupAll("#restaurante-Item");
         
-        for(Node node : todosRest){//informes restaurante
+        for(Node node : listaBlocosRestaurantes){//informes restaurante
             
             Label nomeRest = (Label)node.lookup("#Nome");
             HBox containerEstrelas = (HBox)node.lookup("#Estrelas");
@@ -150,24 +165,26 @@ public class TelaInicialConfig implements Initializable{
             }else {
                 node.setVisible(false);
             }
-            cont++;
             
-        }
-        
-        for(Node node : todosRest){//informes produtos
-            cont = 0;
+            if (cont < restaurantes.size()) {
+
             Set<Node> listaProdutos = node.lookupAll("#produto-item");
-            ArrayList<Produto> produtos = BancoDadosRestaurantes.buscarProdutosRestaurante(restaurantes.get(cont).getId());
+            ArrayList<Produto> produtosDB = BancoDadosRestaurantes.buscarProdutosRestaurante(restaurantes.get(cont).getId());
 
-            for (Node produtoNode : listaProdutos){
-                
-                if (produtos != null) {
-                    Label nomeProduto = (Label)produtoNode.lookup("#nome-produto");
-                    Label descricaoProduto = (Label)produtoNode.lookup("#descricao");
-                    Label precoProduto = (Label)produtoNode.lookup("#valor-Real");
-                    Label centavos = (Label)produtoNode.lookup("#valor-centavo");
+            int produtoCont = 0;
+            
+                for (Node produtoNode : listaProdutos){
 
-                    for (Produto atual : produtos) {
+                    ((Label)produtoNode.lookup("#nome-produto")).setText("nome");;
+
+                    if (produtoCont < produtosDB.size()) {
+
+                        Produto atual = produtosDB.get(produtoCont);
+
+                        Label nomeProduto = (Label)produtoNode.lookup("#nome-produto");
+                        Label descricaoProduto = (Label)produtoNode.lookup("#descricao");
+                        Label precoProduto = (Label)produtoNode.lookup("#valor-Real");
+                        Label centavos = (Label)produtoNode.lookup("#valor-centavo");
                         
                         int preco[] = {
                             (int)Math.round(atual.getPreco() * 100)/100,
@@ -181,16 +198,28 @@ public class TelaInicialConfig implements Initializable{
                             descricaoProduto.setText(atual.getDescricao());
                         }
                         if (precoProduto != null) {
+
                             precoProduto.setText(preco[0] + ",");
-                            centavos.setText(preco[1] + "");
+                            if (preco[1] <= 10) {
+                                centavos.setText("0" + preco[1] + "");
+                            }else if(preco[1] == 0){
+                                centavos.setText("00" + preco[1] + "");
+                            }else{
+                                centavos.setText(preco[1] + "");
+                            }
+                            
                         }
-                        
+                        produtoNode.setVisible(true);
+                    }else{
+                        produtoNode.setVisible(false);
                     }
-                    
+                    produtoCont++;
+
                 }
             }
             cont++;
         }
+        
     }
     public void receberInfoUsuario(Usuario conta){
 
@@ -205,7 +234,6 @@ public class TelaInicialConfig implements Initializable{
         emailMenuLateral.setText(conta.getEmail());
     }
     //Informações Restaurante
-
 
     //arrastar janela
     @FXML
@@ -241,9 +269,9 @@ public class TelaInicialConfig implements Initializable{
     private void abrirMenuLateral(MouseEvent event) { 
         
         if(!isExpandido[0]){
-            Set<Node> listaNodes = painelMae.lookupAll("#restaurante-Item");
-            for (Node paneAlvo : listaNodes) {
-                
+
+            for (Node paneAlvo : listaBlocosRestaurantes) {
+                paneAlvo.toBack();
                 if (paneAlvo.getProperties().containsKey("pane_selecionado") &&
                     (boolean) paneAlvo.getProperties().get("pane_selecionado")) {
                     
@@ -400,13 +428,16 @@ public class TelaInicialConfig implements Initializable{
                         
                         for (Node produto : listaProdutos) {
                             exibirInfoMenuLateral(alturaAtual, alturaAntiga, (Pane) produto); 
+                            if (((Label)produto.lookup("#nome-produto")).getText().equals("nome")) {
+                                produto.setVisible(false);
+                            }
                         }
                     }
                 });
                 
                 painelProdutos.setVisible(true); 
                 Timeline animacaoRest = new Timeline(
-                    new KeyFrame(Duration.millis(500), 
+                    new KeyFrame(Duration.millis(200), 
                         new KeyValue(painelProdutos.prefWidthProperty(),450),
                         new KeyValue(painelProdutos.prefHeightProperty(),455)
                     )
@@ -427,7 +458,6 @@ public class TelaInicialConfig implements Initializable{
                     new KeyValue(paneAlvo.prefHeightProperty(), 200)
                 )
             );
-            paneAlvo.toBack();
 
             Pane painelProdutos = (Pane) paneAlvo.lookup("#painel-produtos");
             if (painelProdutos != null) {
@@ -447,16 +477,16 @@ public class TelaInicialConfig implements Initializable{
                 });
                 
                 Timeline animacaoRest = new Timeline(
-                    new KeyFrame(Duration.millis(50), 
+                    new KeyFrame(Duration.millis(200), 
                         new KeyValue(painelProdutos.prefWidthProperty(),0),
                         new KeyValue(painelProdutos.prefHeightProperty(),0)
                     )
                 );
-                animacaoRest.play();
-                if(painelProdutos.prefWidthProperty().get() == 0 && painelProdutos.prefHeightProperty().get() == 0){
-                    painelProdutos.setVisible(false);
-                }
+                animacaoRest.setOnFinished(event -> {
+                    painelProdutos.setVisible(false); 
+                });
                 
+                animacaoRest.play();
             }
         }
         
@@ -469,16 +499,14 @@ public class TelaInicialConfig implements Initializable{
     }
     public void abrirSacolaProdutos(){//animacao cresce da direita para esquerda
 
-        if(!isExpandido[1]){
-            Set<Node> listaNodes = painelMae.lookupAll("#restaurante-Item");
-            for (Node paneAlvo : listaNodes) {
-                
+        if(!isExpandido[1]){//minimizar todos restauranetes abertos
+            for (Node paneAlvo : listaBlocosRestaurantes) {
+                paneAlvo.toBack();
                 if (paneAlvo.getProperties().containsKey("pane_selecionado") &&
                     (boolean) paneAlvo.getProperties().get("pane_selecionado")) {
                     
 
                     Node bttNode = paneAlvo.lookup("#btt-vizualizar-rest");
-                    
                     if (bttNode != null) {
     
                         MouseEvent mouseEvent = new MouseEvent(
@@ -550,7 +578,25 @@ public class TelaInicialConfig implements Initializable{
             mouseEntra.stop();
             mouseSai.playFromStart();
         });
+        valor.setOnMouseClicked(e -> {
+            if(usuarioAcessando != null){
+                sairConta(valor);
+            }
+        });
 
+    }
+    public void sairConta(Region valor){
+        Stage stageAtual = (Stage) valor.getScene().getWindow();
+        attBancoDeDados.stop();
+        stageAtual.close();
+
+        try {
+            Main.abrirLogin();
+        } catch (Exception e) {
+            System.out.println("Erro ao abrir tela de login: " + e.getMessage());
+        } 
+        
+        
     }
     //metodos de abrir
 
@@ -670,7 +716,7 @@ public class TelaInicialConfig implements Initializable{
 
                             new KeyValue(produtoPane.layoutXProperty(), 
                             produtoPane.getLayoutX() - 
-                            (produtoPane.getLayoutX() > 100 && produtoPane.getLayoutX() < 250 ? 30.5 : 
+                            (produtoPane.getLayoutX() > 100 && produtoPane.getLayoutX() < 250 ? 37.5 : 
                             (produtoPane.getLayoutX() > 250 ? 65 : 0))),
                             new KeyValue(produtoPane.layoutYProperty(), produtoPane.getLayoutY() - (produtoPane.getLayoutY() > 250 ? 45:0)),
                             new KeyValue(produtoPane.prefHeightProperty(), 195),
@@ -687,7 +733,7 @@ public class TelaInicialConfig implements Initializable{
                 
                 produto.setOnMouseExited(e -> {
                     produtoPane.toBack();
-                    Timeline expandir = new Timeline(
+                    Timeline recolher = new Timeline(
                         new KeyFrame(Duration.millis(150), 
                             new KeyValue(produtoPane.layoutXProperty(), xAntigo),
                             new KeyValue(produtoPane.layoutYProperty(), yAntigo),
@@ -699,12 +745,14 @@ public class TelaInicialConfig implements Initializable{
                             new KeyValue(preco.prefWidthProperty(), 121)
                         )
                     );
-                    expandir.play();
+                    recolher.play();
 
                 });
                 
             }
+        
         }
+    
     }
 
 }

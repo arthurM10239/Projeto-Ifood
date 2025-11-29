@@ -67,8 +67,10 @@
 .btt-adicionar-na-sacola{
     -fx-background-color:rgb(0, 26, 255);
     -fx-background-radius:8px;
+    -fx-cursor:HAND;
 }
 .btt-comprar{
     -fx-background-color:rgb(38, 219, 14);
     -fx-background-radius:8px;
+    -fx-cursor:HAND;
 }
