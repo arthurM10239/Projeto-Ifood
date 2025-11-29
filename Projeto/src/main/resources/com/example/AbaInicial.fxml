@@ -2832,6 +2832,7 @@
             </Pane>
          </children>
       </Pane>
+      <Pane id="sacola-produtos" fx:id="LateralSacola" layoutX="549.0" layoutY="50.0" prefHeight="550.0" prefWidth="250.0" styleClass="aba-sacola-produto" />
       <Pane fx:id="SacolaProdutos" layoutX="693.0" layoutY="57.0" onMouseClicked="#abrirSacolaProdutos" prefHeight="41.0" prefWidth="100.0" styleClass="sacola-compras">
          <children>
             <ImageView fitHeight="32.0" fitWidth="20.0" layoutX="61.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
@@ -2854,7 +2855,6 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Pane>
-      <Pane id="sacola-produtos" fx:id="LateralSacola" layoutX="799.0" layoutY="50.0" prefHeight="550.0" prefWidth="0.0" styleClass="aba-sacola-produto" />
       <Pane layoutY="-11.0" prefHeight="61.0" prefWidth="800.0" styleClass="fundo-titulo" />
       <Pane fx:id="painelLateralAnimado" layoutX="3.0" layoutY="2.0" prefHeight="40.0" prefWidth="40.0" styleClass="menu-lateral">
          <children>

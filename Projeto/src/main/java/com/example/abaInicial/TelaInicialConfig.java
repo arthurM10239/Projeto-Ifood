@@ -477,7 +477,7 @@ public class TelaInicialConfig implements Initializable{
                 });
                 
                 Timeline animacaoRest = new Timeline(
-                    new KeyFrame(Duration.millis(200), 
+                    new KeyFrame(Duration.millis(100), 
                         new KeyValue(painelProdutos.prefWidthProperty(),0),
                         new KeyValue(painelProdutos.prefHeightProperty(),0)
                     )
