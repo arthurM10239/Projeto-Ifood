@@ -33,6 +33,7 @@ public class RestaurantesDB {
                     restaurante = new Restaurante(
                     rs.getInt("id_restaurante"), 
                     rs.getString("nome_restaurante"),
+                    rs.getString("dono_"),
                     rs.getString("tipo_culinaria"),
                     rs.getInt("num_avaliacoes"),
                     rs.getDouble("total_avaliacoes"),
@@ -52,7 +53,38 @@ public class RestaurantesDB {
         return listaRestaurantes;
     }
     
-    // Dentro da classe RestaurantesDB.java
+    public ArrayList<Produto> buscarProdutosRestaurante(int idRestaurante) {
+        String sql = "SELECT * FROM pratos WHERE id_restaurante = ?";
+
+        ArrayList<Produto> listaProdutos = new ArrayList<>();
+
+        try (Connection conn = ConexaoDB.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, idRestaurante);
+
+            try (ResultSet rs = stmt.executeQuery()) { 
+
+                while (rs.next()) {
+                    
+                    Produto produto = new Produto(
+                    rs.getString("nome_prato"), 
+                    rs.getString("descricao"),
+                    rs.getDouble("preco"));
+                    
+                    listaProdutos.add(produto); 
+                }
+                
+            }
+
+        }catch (SQLException e) {
+            System.err.println("Erro SQL ao inserir usuário: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        
+        return listaProdutos;
+    }
 
     public long buscarUltimaModificacao() {
         String sql = "SELECT MAX(data_atualizacao) AS ultima_modificacao FROM restaurantes";

@@ -24,12 +24,41 @@
 }
 
 .exposicao-restaurante{
-    -fx-background-color:rgb(233, 13, 13);
-    -fx-background-radius:8;
+    -fx-background-color:#f00;
+    -fx-background-radius:20 20 0 20;
+    -fx-transition: -fx-background-color 0.3s ease-in-out;
 }
-.info-menu-lateral{
+
+
+.info-menu-lateral{  
     -fx-border-color:rgba(26, 26, 26, 0.836);
     -fx-border-width:0 1 2 1;
 }
 
+.aba-sacola-produto{
+    -fx-background-color:rgb(73, 73, 73);
+    -fx-background-radius:8;
+    -fx-effect: dropshadow( three-pass-box , rgba(0, 0, 0, 0.76) , 10, 0.0 , 0 , 1 );
+}
 
+.sacola-compras:hover{
+    -fx-effect: dropshadow( three-pass-box , rgba(0, 0, 0, 0.76) , 10, 0.0 , 0 , 1 );
+}
+
+.btt-acessar-db{
+    -fx-background-color:rgb(73, 73, 73);
+    -fx-background-radius:8;
+    -fx-effect: dropshadow( three-pass-box , rgba(0, 0, 0, 0.76) , 10, 0.0 , 0 , 1 );
+}
+.btt-acessar-db:hover{
+    -fx-background-color:rgb(41, 40, 40);
+}
+
+.painel-de-produtos{
+    -fx-background-color:rgba(170, 0, 0, 0.842);
+    -fx-background-radius:8px;
+}
+.produto-padrao{
+    -fx-background-color:rgba(0, 0, 0, 0.842);
+    -fx-background-radius:8px;
+}

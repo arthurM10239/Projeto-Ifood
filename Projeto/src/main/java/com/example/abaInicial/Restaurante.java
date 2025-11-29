@@ -3,14 +3,16 @@ package com.example.abaInicial;
 public class Restaurante {
     private int id;
     private String nome;
+    private String dono;
     private String tipoCulinaria;
     private int numAvaliacoes;
     private double totalAvaliacoes;
     private double mediaAvaliacao;
 
-    public Restaurante(int id, String nome, String tipoCulinaria, int numAvaliacoes, double totalAvaliacoes, double mediaAvaliacao) {
+    public Restaurante(int id, String nome,String dono, String tipoCulinaria, int numAvaliacoes, double totalAvaliacoes, double mediaAvaliacao) {
         this.id = id;
         this.nome = nome;
+        this.dono = dono;
         this.tipoCulinaria = tipoCulinaria;
         this.numAvaliacoes = numAvaliacoes;
         this.totalAvaliacoes = totalAvaliacoes;
@@ -55,6 +57,12 @@ public class Restaurante {
     }
     public void setMediaAvaliacao(double mediaAvaliacao) {
         this.mediaAvaliacao = mediaAvaliacao;
+    }
+    public String getDono() {
+        return dono;
+    }
+    public void setDono(String dono) {
+        this.dono = dono;
     }
     
 }

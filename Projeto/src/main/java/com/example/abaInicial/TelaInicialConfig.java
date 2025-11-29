@@ -16,6 +16,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -30,7 +31,7 @@ import javafx.util.Duration;
 public class TelaInicialConfig implements Initializable{
     
     @FXML
-    private Pane painelAnimado;
+    private Pane painelLateralAnimado;
     @FXML
     private Label nomeUsuarioMenuLateral;
     @FXML
@@ -43,6 +44,10 @@ public class TelaInicialConfig implements Initializable{
     private Label tipoDeInfoMenuLateral2;
     @FXML
     private Label tipoDeInfoMenuLateral3;
+    @FXML
+    private Label InfoDB;
+    @FXML
+    private Label bttAcessarDB;
 
     @FXML
     private Label bttSairConta;
@@ -52,13 +57,18 @@ public class TelaInicialConfig implements Initializable{
     private Pane SacolaProdutos;
     @FXML
     private Pane painelMae;
+    @FXML
+    private Pane LateralSacola;
+    @FXML
+    private Usuario usuarioAcessando;
 
     RestaurantesDB BancoDadosRestaurantes = new RestaurantesDB();
     private long lastCheckTime = 0;
     private int quantRest = 0;
 
 
-    private boolean isExpandido = false;
+    private boolean[] isExpandido = new boolean[3];
+
 
     private double xOffset = 0;
     private double yOffset = 0;
@@ -67,7 +77,10 @@ public class TelaInicialConfig implements Initializable{
     public void initialize(java.net.URL location, java.util.ResourceBundle resources) {
         adicionarMonitorDeAltura();
         transicaoCor(SacolaProdutos,200);
+        botaoSairConta(bttSairConta,200);
+        verificarEAtualizar();
         atualizarInfos();
+        // produtosRestaurante();
     }
 
     void atualizarInfos(){
@@ -86,7 +99,7 @@ public class TelaInicialConfig implements Initializable{
         int currentCont = BancoDadosRestaurantes.buscarModificacaoQuantRest();
         
         if (currentDbTime > lastCheckTime || currentCont != quantRest) {
-            System.out.println("MUDANÇA DETECTADA NO DB! Atualizando UI...");
+            System.out.println("Atualizando Dados");
             definirInfoRestaurante();
             
             lastCheckTime = currentDbTime;
@@ -96,18 +109,20 @@ public class TelaInicialConfig implements Initializable{
     }
 
     public void definirInfoRestaurante(){
+
         ArrayList<Restaurante> restaurantes = BancoDadosRestaurantes.buscarInfoRestaurante();
 
         int cont = 0;
         Set<Node> todosRest = painelMae.lookupAll("#restaurante-Item");
         
-        for(Node node : todosRest){
+        for(Node node : todosRest){//informes restaurante
             
-            Label nomeRest = (Label)node.lookup("#restNome");
-            HBox containerEstrelas = (HBox)node.lookup("#restEstrelas");
-            Label quantidadeAval = (Label)node.lookup("#restQuantAval");
-            Label mediaAvaliacao = (Label)node.lookup("#restAvalMedia");
-            Label donoRest = (Label)node.lookup("#restDono");
+            Label nomeRest = (Label)node.lookup("#Nome");
+            HBox containerEstrelas = (HBox)node.lookup("#Estrelas");
+            Label quantidadeAval = (Label)node.lookup("#QuantAval");
+            Label mediaAvaliacao = (Label)node.lookup("#AvalMedia");
+            Label donoRest = (Label)node.lookup("#Dono");
+            Label tipoPrato = (Label)node.lookup("#TipoDePratos");
 
             if (cont < restaurantes.size()) {
                 
@@ -123,6 +138,10 @@ public class TelaInicialConfig implements Initializable{
                     mediaAvaliacao.setText(restaurantes.get(cont).getMediaAvaliacao()+"");
                 }
                 if (donoRest != null) {
+                    donoRest.setText("Dono: " + restaurantes.get(cont).getDono());
+                }
+                if(tipoPrato != null){
+                    tipoPrato.setText(restaurantes.get(cont).getTipoCulinaria());
                 }
                 node.setVisible(true);
             }else {
@@ -132,13 +151,52 @@ public class TelaInicialConfig implements Initializable{
             
         }
 
-    }
+        for(Node node : todosRest){//informes produtos
+            cont = 0;
+            Set<Node> listaProdutos = node.lookupAll("#produto-item");
+            
+            for (Node produtoNode : listaProdutos){
 
+                ArrayList<Produto> produtos = BancoDadosRestaurantes.buscarProdutosRestaurante(restaurantes.get(cont).getId());
+                
+                if (produtos != null) {
+                    Label nomeProduto = (Label)produtoNode.lookup("#nome-produto");
+                    Label descricaoProduto = (Label)produtoNode.lookup("#descricao");
+                    Label precoProduto = (Label)produtoNode.lookup("#valor-Real");
+                    Label centavos = (Label)produtoNode.lookup("#valor-centavo");
+
+                    for(int i = 0; i < produtos.size(); i++){
+                    
+                        int preco[] = {
+                            (int)Math.round(produtos.get(i).getPreco() * 100)/100,
+                            (int)(Math.round(produtos.get(i).getPreco() * 100) % 100)
+                        };
+
+                        if (nomeProduto != null) {
+                            nomeProduto.setText(produtos.get(i).getNome());
+                        }
+                        if (descricaoProduto != null) {
+                            descricaoProduto.setText(produtos.get(i).getDescricao());
+                        }
+                        if (precoProduto != null) {
+                            precoProduto.setText(preco[0] + ",");
+                            centavos.setText(preco[1] + "");
+                        }
+
+                    }
+                }
+                cont++;
+            }
+        }
+    }
+    
     public void receberInfoUsuario(Usuario conta){
 
         Stage stage = Main.getPrimaryStage();
         stage.sizeToScene(); 
         stage.centerOnScreen();
+
+        usuarioAcessando = conta;
 
         nomeUsuarioMenuLateral.setText(conta.getNome());
         tipoUsuarioMenuLateral.setText(conta.getAcesso());
@@ -208,7 +266,7 @@ public class TelaInicialConfig implements Initializable{
     }
     //botoesFuncoes
 
-    public void exibirInfoMenuLateral(double alturaAtual,double alturaAntiga,Label conteudo){
+    public void exibirInfoMenuLateral(double alturaAtual,double alturaAntiga,Region conteudo){
         if (alturaAtual >= (conteudo.getLayoutY()+conteudo.getHeight()) && alturaAntiga < (conteudo.getLayoutY()+conteudo.getHeight())) {
             conteudo.setVisible(true);
         } else if (alturaAtual < (conteudo.getLayoutY()+conteudo.getHeight()) && alturaAntiga >= (conteudo.getLayoutY()+conteudo.getHeight())) {
@@ -216,7 +274,7 @@ public class TelaInicialConfig implements Initializable{
         }
     }
     private void adicionarMonitorDeAltura() {
-        painelAnimado.prefHeightProperty().addListener(new ChangeListener<Number>() {
+        painelLateralAnimado.prefHeightProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
                 double alturaAtual = newValue.doubleValue();
@@ -229,20 +287,73 @@ public class TelaInicialConfig implements Initializable{
                 exibirInfoMenuLateral(alturaAtual, alturaAntiga, tipoDeInfoMenuLateral1);
                 exibirInfoMenuLateral(alturaAtual, alturaAntiga, tipoDeInfoMenuLateral2);
                 exibirInfoMenuLateral(alturaAtual, alturaAntiga, tipoDeInfoMenuLateral3);
+                if (usuarioAcessando != null && usuarioAcessando.getAcesso().equals("DONO")) {
+                    exibirInfoMenuLateral(alturaAtual, alturaAntiga, InfoDB);
+                    exibirInfoMenuLateral(alturaAtual, alturaAntiga, bttAcessarDB);
+                }
                 
             }
         });
     }
 
     @FXML
+    private void ligarDesligar(MouseEvent e){
+        
+        Label atual = (Label)e.getSource();
+        if (isExpandido[2]) {
+            atual.setStyle("-fx-background-color:rgb(73, 73, 73);-fx-alignment:TOP-CENTER;");
+            atual.setText("EXIBIR");
+        }else{
+            atual.setStyle("-fx-background-color:rgb(41, 40, 40);-fx-alignment:CENTER;");
+            atual.setText("FECHAR");
+        }
+        isExpandido[2] = !isExpandido[2];
+    }
+
+    @FXML
     private void abrirMenuLateral(MouseEvent event) { 
         
-        final double LARGURA_INICIAL = 40.0;
-        final double LARGURA_FINAL = 200.0;
-        final double ALTURA_INCREMENTO = 100.0; 
+        if(!isExpandido[0]){
+            Set<Node> listaNodes = painelMae.lookupAll("#restaurante-Item");
+            for (Node paneAlvo : listaNodes) {
+                
+                if (paneAlvo.getProperties().containsKey("pane_selecionado") &&
+                    (boolean) paneAlvo.getProperties().get("pane_selecionado")) {
+                    
+
+                    Node bttNode = paneAlvo.lookup("#btt-vizualizar-rest");
+                    
+                    if (bttNode != null) {
+    
+                        MouseEvent mouseEvent = new MouseEvent(
+                            MouseEvent.MOUSE_CLICKED, 
+                            0, 0, 0, 0, 
+                            javafx.scene.input.MouseButton.PRIMARY, 
+                            1, 
+                            false, false, false, false, 
+                            true, false, false, true, 
+                            false, false, null
+                        );
+    
+                        vizualizarRestaurante(mouseEvent.copyFor(bttNode, bttNode));
+                        break; 
+                    }
+                }
+            }
+        }
+
+        double LARGURA_INICIAL = 40.0;
+        double LARGURA_FINAL = 200.0;
+        double ALTURA_INCREMENTO = 100.0; 
         double larguraPara, alturaPara;
+
+        if (usuarioAcessando != null && usuarioAcessando.getAcesso().equals("DONO")) {
+            ALTURA_INCREMENTO = 350.0;
+            bttSairConta.setLayoutY((ALTURA_INCREMENTO+200)-50);
+            fundoBotaoSairConta.setLayoutY(bttSairConta.getLayoutY()+26);
+        }
         
-        if (isExpandido) {
+        if (isExpandido[0]) {
             larguraPara = LARGURA_INICIAL;
             alturaPara = LARGURA_INICIAL;
         } else {
@@ -253,18 +364,18 @@ public class TelaInicialConfig implements Initializable{
         Timeline timelineLargura = new Timeline();
         timelineLargura.getKeyFrames().add(
             new KeyFrame(Duration.millis(100),
-                new KeyValue(painelAnimado.prefWidthProperty(), larguraPara)
+                new KeyValue(painelLateralAnimado.prefWidthProperty(), larguraPara)
             )
         );
         
         Timeline timelineAltura = new Timeline();
         timelineAltura.getKeyFrames().add(
             new KeyFrame(Duration.millis(150),
-                new KeyValue(painelAnimado.prefHeightProperty(), alturaPara)
+                new KeyValue(painelLateralAnimado.prefHeightProperty(), alturaPara)
             )
         );
 
-        if (isExpandido) {
+        if (isExpandido[0]) {
             timelineAltura.play();
             timelineAltura.setOnFinished(e -> timelineLargura.play());
             
@@ -273,17 +384,51 @@ public class TelaInicialConfig implements Initializable{
             timelineLargura.setOnFinished(e -> timelineAltura.play());
         }
 
-        isExpandido = !isExpandido;
+        isExpandido[0] = !isExpandido[0];
     }
-
+    
     public void vizualizarRestaurante(MouseEvent e){
+
+        if (isExpandido[0]) {
+                    
+            for (Node nodeAtual : painelLateralAnimado.getChildren()) {
+
+                if (nodeAtual != null && nodeAtual instanceof ImageView) {
+    
+                    MouseEvent mouseEvent = new MouseEvent(
+                        MouseEvent.MOUSE_CLICKED, 
+                        0, 0, 0, 0, 
+                        javafx.scene.input.MouseButton.PRIMARY, 
+                        1, 
+                        false, false, false, false, 
+                        true, false, false, true, 
+                        false, false, null
+                    );
+        
+                        abrirMenuLateral(mouseEvent.copyFor(nodeAtual, nodeAtual));
+                    break; 
+                }
+            }
+                    
+            
+        }
 
         final String ESTADO_SELECIONADO_KEY = "pane_selecionado";
         final String LAYOUT_X_ORIGINAL_KEY = "layoutX_original";
         final String LAYOUT_Y_ORIGINAL_KEY = "layoutY_original";
 
-        Node btt = (Node)e.getSource();
-        Pane paneAlvo = (Pane) btt.getParent();
+        Set<Node> listaBtt = painelMae.lookupAll("#btt-vizualizar-rest");
+
+        ImageView btt = new ImageView();
+        Pane paneAlvo = new Pane();
+
+        for (Node bttAtual : listaBtt) {
+            if (bttAtual == e.getSource()) {
+                paneAlvo = (Pane) bttAtual.getParent();    
+                btt = (ImageView)bttAtual;
+            }
+        }
+        
 
         if (!paneAlvo.getProperties().containsKey(ESTADO_SELECIONADO_KEY)) {
             paneAlvo.getProperties().put(ESTADO_SELECIONADO_KEY, false);
@@ -296,7 +441,6 @@ public class TelaInicialConfig implements Initializable{
         double yOriginal = (double) paneAlvo.getProperties().get(LAYOUT_Y_ORIGINAL_KEY);
 
         Timeline animacaoPosicao;
-        
 
         if (!estaSelecionado) {
             animacaoPosicao = new Timeline(
@@ -315,6 +459,34 @@ public class TelaInicialConfig implements Initializable{
             // for (int i = 0; i < (int)DoubleMediaAval; i++) {
             //     estrelas.get(i).setImage(new Image("imagens/estrelaAmarela.png"));    
             // }
+
+            Pane painelProdutos = (Pane) paneAlvo.lookup("#painel-produtos");
+
+            if (painelProdutos != null) {
+                
+                painelProdutos.prefHeightProperty().addListener(new ChangeListener<Number>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                        double alturaAtual = newValue.doubleValue();
+                        double alturaAntiga = oldValue.doubleValue();
+                        
+                        Set<Node> listaProdutos = painelProdutos.lookupAll("#produto-item");
+                        
+                        for (Node produto : listaProdutos) {
+                            exibirInfoMenuLateral(alturaAtual, alturaAntiga, (Pane) produto); 
+                        }
+                    }
+                });
+                
+                painelProdutos.setVisible(true); 
+                Timeline animacaoRest = new Timeline(
+                    new KeyFrame(Duration.millis(500), 
+                        new KeyValue(painelProdutos.prefWidthProperty(),450),
+                        new KeyValue(painelProdutos.prefHeightProperty(),435)
+                    )
+                );
+                animacaoRest.play();
+            }
             
         } else {
             animacaoPosicao = new Timeline(
@@ -330,36 +502,130 @@ public class TelaInicialConfig implements Initializable{
                 )
             );
             paneAlvo.toBack();
+
+            Pane painelProdutos = (Pane) paneAlvo.lookup("#painel-produtos");
+            if (painelProdutos != null) {
+
+                painelProdutos.prefHeightProperty().addListener(new ChangeListener<Number>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                        double alturaAtual = newValue.doubleValue();
+                        double alturaAntiga = oldValue.doubleValue();
+                        
+                        Set<Node> listaProdutos = painelProdutos.lookupAll("#produto-item");
+                        
+                        for (Node produto : listaProdutos) {
+                            exibirInfoMenuLateral(alturaAtual, alturaAntiga, (Pane) produto); 
+                        }
+                    }
+                });
+                
+                Timeline animacaoRest = new Timeline(
+                    new KeyFrame(Duration.millis(50), 
+                        new KeyValue(painelProdutos.prefWidthProperty(),0),
+                        new KeyValue(painelProdutos.prefHeightProperty(),0)
+                    )
+                );
+                animacaoRest.play();
+                if(painelProdutos.prefWidthProperty().get() == 0 && painelProdutos.prefHeightProperty().get() == 0){
+                    painelProdutos.setVisible(false);
+                }
+                
+            }
         }
         
         paneAlvo.getProperties().put(ESTADO_SELECIONADO_KEY, !estaSelecionado);
         animacaoPosicao.play();
+
+        if (isExpandido[1]) {
+            abrirSacolaProdutos();
+        }
     }
 
-    public void entraBotaoSairConta(MouseEvent e){
-        Pane btt = fundoBotaoSairConta;
+    public void abrirSacolaProdutos(){//animacao cresce da direita para esquerda
 
-        Timeline botaoSairConta = new Timeline(
-                new KeyFrame(Duration.millis(100), 
-                    // Move para a mesma coordenada fixa para todos os Panes
-                    new KeyValue(btt.prefHeightProperty(), 26),
-                    new KeyValue(btt.layoutYProperty(), 254)
-                )
+        if(!isExpandido[1]){
+            Set<Node> listaNodes = painelMae.lookupAll("#restaurante-Item");
+            for (Node paneAlvo : listaNodes) {
+                
+                if (paneAlvo.getProperties().containsKey("pane_selecionado") &&
+                    (boolean) paneAlvo.getProperties().get("pane_selecionado")) {
+                    
+
+                    Node bttNode = paneAlvo.lookup("#btt-vizualizar-rest");
+                    
+                    if (bttNode != null) {
+    
+                        MouseEvent mouseEvent = new MouseEvent(
+                            MouseEvent.MOUSE_CLICKED, 
+                            0, 0, 0, 0, 
+                            javafx.scene.input.MouseButton.PRIMARY, 
+                            1, 
+                            false, false, false, false, 
+                            true, false, false, true, 
+                            false, false, null
+                        );
+    
+                        vizualizarRestaurante(mouseEvent.copyFor(bttNode, bttNode));
+                        break; 
+                    }
+                }
+            }
+        }
+        
+        final double posicaoInicial = 799.0;
+        final double posicaoFinal = 549.0;
+        final double larguraTotal = 250.0; 
+        double posicao, largura;
+
+        if (isExpandido[1]) {
+            posicao = posicaoInicial;
+            largura = 0;
+        } else {
+            posicao = posicaoFinal;
+            largura = larguraTotal;
+        }
+
+        Timeline animacaoPosicao = new Timeline(
+            new KeyFrame(Duration.millis(200), 
+                // Move para a mesma coordenada fixa para todos os Panes
+                new KeyValue(LateralSacola.layoutXProperty(), posicao),
+                new KeyValue(LateralSacola.prefWidthProperty(), largura)
+            )
         );
-        
-        botaoSairConta.play();
-    }
-    public void saiBotaoSairConta(MouseEvent e){
-        Pane btt = fundoBotaoSairConta;
-        
-        Timeline botaoSairConta = new Timeline(
-                new KeyFrame(Duration.millis(200), 
-                    new KeyValue(btt.prefHeightProperty(), 0),
-                    new KeyValue(btt.layoutYProperty(), 280)
-                )
-        );
-        
-        botaoSairConta.play();
+        animacaoPosicao.play();
+
+        isExpandido[1] = !isExpandido[1];
+
     }
     
+    public void botaoSairConta(Region valor, int delay){
+        Duration duracao = Duration.millis(delay);
+        Pane btt = fundoBotaoSairConta;
+
+        Timeline mouseEntra = new Timeline(
+                new KeyFrame(duracao, 
+                    new KeyValue(btt.prefHeightProperty(), valor.getPrefHeight()),
+                    new KeyValue(btt.layoutYProperty(), valor.getLayoutY())
+                )
+        );
+        Timeline mouseSai = new Timeline(
+                new KeyFrame(duracao, 
+                    new KeyValue(btt.prefHeightProperty(), 0),
+                    new KeyValue(btt.layoutYProperty(), valor.getLayoutY()+valor.getPrefHeight())
+                )
+        );
+
+        valor.setOnMouseEntered(e -> {
+            mouseSai.stop();
+            mouseEntra.playFromStart();
+        });
+
+        valor.setOnMouseExited(e -> {
+            mouseEntra.stop();
+            mouseSai.playFromStart();
+        });
+
+    }
+
 }

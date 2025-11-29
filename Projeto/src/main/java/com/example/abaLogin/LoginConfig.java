@@ -12,6 +12,7 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -352,6 +353,7 @@ public class LoginConfig implements Initializable{
             email+= "@gmail.com";
             boolean sucessoEnvio = emailService.enviarCodigoConfirmacao(email, codigoCorreto);
 
+            telaCompleta.setCursor(Cursor.WAIT);
             try {
                 //aviso
                 if (usuario.nomeUsuarioExiste(nome) && usuario.emailExiste(email)) {
@@ -379,11 +381,13 @@ public class LoginConfig implements Initializable{
                 //aviso
                 
                 if (sucessoEnvio) {
+                    telaCompleta.setCursor(Cursor.DEFAULT);
                     c1 = new Usuario(acesso,nome,email,senha);
                     if (!telaConfirmacaoEmail.isVisible()) {telaConfirmacaoEmail.setVisible(true);}
 
                 }else {
                     // FALHA NO ENVIO
+                    telaCompleta.setCursor(Cursor.DEFAULT);
                     txtErroCadastro.setText("Falha ao enviar o e-mail de confirmação. \nVerifique o endereço ou a conexão.");
                     telaDeAviso.setVisible(true);
                 }
@@ -495,7 +499,6 @@ public class LoginConfig implements Initializable{
         int codigo = random.nextInt(max - min + 1) + min;
         return String.valueOf(codigo);
     }
-
     @FXML
     public void verificarCodigo() {
         String codigoDigitado = fieldCodigo.getText();
