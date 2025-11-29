@@ -59,6 +59,16 @@
     -fx-background-radius:8px;
 }
 .produto-padrao{
-    -fx-background-color:rgba(0, 0, 0, 0.842);
+    -fx-background-color:rgb(0, 0, 0);
+    -fx-background-radius:8px;
+    -fx-border-color:rgb(255, 255, 255);
+    -fx-border-radius:8px;
+}
+.btt-adicionar-na-sacola{
+    -fx-background-color:rgb(0, 26, 255);
+    -fx-background-radius:8px;
+}
+.btt-comprar{
+    -fx-background-color:rgb(38, 219, 14);
     -fx-background-radius:8px;
 }

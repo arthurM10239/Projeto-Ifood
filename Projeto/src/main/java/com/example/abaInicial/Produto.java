@@ -26,18 +26,7 @@ public class Produto {
         this.nome = nome;
     }
     public String getDescricao() {
-        if (this.descricao.length() > 10) {
-            for (int i = 0,cont = 0; i < this.descricao.length(); i++) {
-                if(this.descricao.charAt(i) == ' '){
-                    cont++;
-                }
-                else if (i > 15 || cont >= 2) {
-                    return this.descricao.substring(0, i) + "\n" + this.descricao.substring(i);
-                }
-
-            }
-        }
-        return descricao;
+        return "Descrição: " + descricao;
     }
     public void setDescricao(String descricao) {
         this.descricao = descricao;
