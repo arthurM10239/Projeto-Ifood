@@ -9,6 +9,7 @@ public class SacolaDeProdutos {
 
     public SacolaDeProdutos() {
         this.produtosNaSacola = new ArrayList<>();
+        valorTotal = 0.0;
     }
 
     public void addProduto(Produto produto) {
@@ -27,16 +28,28 @@ public class SacolaDeProdutos {
     public ArrayList<Produto> getProdutosNaSacola() {
         return produtosNaSacola;
     }
+    public int getTamanhoSacola() {
+        return produtosNaSacola.size();
+    }
+    public int getQuantProduto(String nomeProduto) {
+        int count = 0;
+        for (Produto produto : produtosNaSacola) {
+            if (produto.getNome().equals(nomeProduto)) {
+                count++;
+            }
+        }
+        return count;
 
+    }
+    public boolean isEmpty() {
+        return produtosNaSacola.isEmpty();
+    }
 
     public double getValorTotal() {
+        for (Produto produto : produtosNaSacola) {
+            valorTotal += produto.getPreco();
+        }
         return valorTotal;
-    }
-    public void setValorTotal(double valorTotal) {
-        this.valorTotal = valorTotal;
-    }
-    public int getQuantidadeProdutos() {
-        return quantidadeProdutos;
     }
     public void setQuantidadeProdutos(int quantidadeProdutos) {
         this.quantidadeProdutos = quantidadeProdutos;

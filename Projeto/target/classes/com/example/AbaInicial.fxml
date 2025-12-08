@@ -27,7 +27,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <HBox id="Estrelas" layoutX="48.0" layoutY="38.0" prefHeight="31.0" prefWidth="105.0">
+            <HBox id="Estrelas" alignment="CENTER" layoutX="41.0" layoutY="40.0" prefHeight="19.0" prefWidth="115.0">
                <children>
                   <ImageView fitHeight="19.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -56,9 +56,9 @@
                   </ImageView>
                </children>
             </HBox>
-            <VBox alignment="TOP_CENTER" layoutX="56.0" layoutY="59.0" prefHeight="41.0" prefWidth="85.0">
+            <VBox alignment="TOP_CENTER" layoutX="56.0" layoutY="59.0" prefHeight="31.0" prefWidth="85.0" style="-fx-background-color: red; -fx-background-radius: 0 0 8 8;">
                <children>
-                  <Label id="QuantAval" alignment="CENTER" prefHeight="15.0" text="0 Avaliações" textFill="#f1ff00">
+                  <Label id="QuantAval" alignment="CENTER" prefHeight="15.0" text="0 Avaliações" textFill="#f2ff00">
                      <font>
                         <Font name="Arial Black" size="10.0" />
                      </font>
@@ -75,7 +75,7 @@
                   <Font name="Arial Black" size="12.0" />
                </font>
             </Label>
-            <Label id="TipoDePratos" alignment="TOP_CENTER" layoutX="1.0" layoutY="117.0" prefHeight="47.0" prefWidth="200.0" text="Tipos De Prato: &#10;a" textFill="WHITE" wrapText="true">
+            <Label id="TipoDePratos" alignment="TOP_CENTER" layoutX="1.0" layoutY="117.0" prefHeight="17.0" prefWidth="200.0" text="Tipos De Prato: " textFill="WHITE" wrapText="true">
                <font>
                   <Font name="Arial Black" size="12.0" />
                </font>
@@ -480,6 +480,7 @@
                   </Pane>
                </children>
             </Pane>
+            <Pane id="borda-restaurante" prefHeight="200.0" prefWidth="15.0" />
          </children>
       </Pane>
       <Pane id="restaurante-Item" layoutX="300.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" styleClass="exposicao-restaurante">
@@ -2832,22 +2833,384 @@
             </Pane>
          </children>
       </Pane>
-      <Pane id="sacola-produtos" fx:id="LateralSacola" layoutX="549.0" layoutY="50.0" prefHeight="550.0" prefWidth="250.0" styleClass="aba-sacola-produto" />
-      <Pane fx:id="SacolaProdutos" layoutX="693.0" layoutY="57.0" onMouseClicked="#abrirSacolaProdutos" prefHeight="41.0" prefWidth="100.0" styleClass="sacola-compras">
+      <Pane id="sacola-produtos" fx:id="LateralSacola" layoutX="549.0" layoutY="50.0" prefHeight="550.0" prefWidth="250.0" styleClass="aba-sacola-produto">
          <children>
-            <ImageView fitHeight="32.0" fitWidth="20.0" layoutX="61.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+            <Pane id="produto-na-sacola" layoutX="25.0" layoutY="65.0" prefHeight="50.0" prefWidth="200.0" styleClass="produto-sacola">
+               <children>
+                  <Label id="nome" layoutX="9.0" layoutY="6.0" prefHeight="16.0" prefWidth="187.0" text="Nome Completo Do Produto" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Black" size="11.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="116.0" layoutY="26.0" prefHeight="25.0" prefWidth="70.0">
+                     <children>
+                        <Label id="remover-item" alignment="CENTER" prefHeight="16.0" prefWidth="23.0" text="-" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <Label id="quantidade" alignment="CENTER" prefHeight="16.0" prefWidth="23.0" text="99" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-item" alignment="CENTER" prefHeight="16.0" prefWidth="23.0" text="+" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="4.0" layoutY="26.0" prefHeight="25.0" prefWidth="71.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="16.0" prefWidth="23.0" text="R$" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="preco" alignment="CENTER" prefHeight="16.0" prefWidth="46.0" text="100,10" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </Pane>
+            <Pane id="produto-na-sacola" layoutX="25.0" layoutY="125.0" prefHeight="50.0" prefWidth="200.0" styleClass="produto-sacola">
+               <children>
+                  <Label id="nome" layoutX="9.0" layoutY="6.0" prefHeight="16.0" prefWidth="187.0" text="Nome Completo Do Produto" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Black" size="11.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="116.0" layoutY="26.0" prefHeight="25.0" prefWidth="70.0">
+                     <children>
+                        <Label id="remover-item" alignment="CENTER" prefHeight="16.0" prefWidth="23.0" text="-" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <Label id="quantidade" alignment="CENTER" prefHeight="16.0" prefWidth="23.0" text="99" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-item" alignment="CENTER" prefHeight="16.0" prefWidth="23.0" text="+" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="4.0" layoutY="26.0" prefHeight="25.0" prefWidth="71.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="16.0" prefWidth="23.0" text="R$" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="preco" alignment="CENTER" prefHeight="16.0" prefWidth="46.0" text="100,10" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </Pane>
+            <Pane id="produto-na-sacola" layoutX="25.0" layoutY="185.0" prefHeight="50.0" prefWidth="200.0" styleClass="produto-sacola">
+               <children>
+                  <Label id="nome" layoutX="9.0" layoutY="6.0" prefHeight="16.0" prefWidth="187.0" text="Nome Completo Do Produto" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Black" size="11.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="116.0" layoutY="26.0" prefHeight="25.0" prefWidth="70.0">
+                     <children>
+                        <Label id="remover-item" alignment="CENTER" prefHeight="16.0" prefWidth="23.0" text="-" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <Label id="quantidade" alignment="CENTER" prefHeight="16.0" prefWidth="23.0" text="99" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-item" alignment="CENTER" prefHeight="16.0" prefWidth="23.0" text="+" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="4.0" layoutY="26.0" prefHeight="25.0" prefWidth="71.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="16.0" prefWidth="23.0" text="R$" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="preco" alignment="CENTER" prefHeight="16.0" prefWidth="46.0" text="100,10" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </Pane>
+            <Pane id="produto-na-sacola" layoutX="25.0" layoutY="245.0" prefHeight="50.0" prefWidth="200.0" styleClass="produto-sacola">
+               <children>
+                  <Label id="nome" layoutX="9.0" layoutY="6.0" prefHeight="16.0" prefWidth="187.0" text="Nome Completo Do Produto" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Black" size="11.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="116.0" layoutY="26.0" prefHeight="25.0" prefWidth="70.0">
+                     <children>
+                        <Label id="remover-item" alignment="CENTER" prefHeight="16.0" prefWidth="23.0" text="-" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <Label id="quantidade" alignment="CENTER" prefHeight="16.0" prefWidth="23.0" text="99" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-item" alignment="CENTER" prefHeight="16.0" prefWidth="23.0" text="+" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="4.0" layoutY="26.0" prefHeight="25.0" prefWidth="71.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="16.0" prefWidth="23.0" text="R$" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="preco" alignment="CENTER" prefHeight="16.0" prefWidth="46.0" text="100,10" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </Pane>
+            <Pane id="produto-na-sacola" layoutX="25.0" layoutY="305.0" prefHeight="50.0" prefWidth="200.0" styleClass="produto-sacola">
+               <children>
+                  <Label id="nome" layoutX="9.0" layoutY="6.0" prefHeight="16.0" prefWidth="187.0" text="Nome Completo Do Produto" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Black" size="11.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="116.0" layoutY="26.0" prefHeight="25.0" prefWidth="70.0">
+                     <children>
+                        <Label id="remover-item" alignment="CENTER" prefHeight="16.0" prefWidth="23.0" text="-" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <Label id="quantidade" alignment="CENTER" prefHeight="16.0" prefWidth="23.0" text="99" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-item" alignment="CENTER" prefHeight="16.0" prefWidth="23.0" text="+" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="4.0" layoutY="26.0" prefHeight="25.0" prefWidth="71.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="16.0" prefWidth="23.0" text="R$" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="preco" alignment="CENTER" prefHeight="16.0" prefWidth="46.0" text="100,10" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </Pane>
+            <Pane id="produto-na-sacola" layoutX="25.0" layoutY="365.0" prefHeight="50.0" prefWidth="200.0" styleClass="produto-sacola">
+               <children>
+                  <Label id="nome" layoutX="9.0" layoutY="6.0" prefHeight="16.0" prefWidth="187.0" text="Nome Completo Do Produto" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Black" size="11.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="116.0" layoutY="26.0" prefHeight="25.0" prefWidth="70.0">
+                     <children>
+                        <Label id="remover-item" alignment="CENTER" prefHeight="16.0" prefWidth="23.0" text="-" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <Label id="quantidade" alignment="CENTER" prefHeight="16.0" prefWidth="23.0" text="99" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-item" alignment="CENTER" prefHeight="16.0" prefWidth="23.0" text="+" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="4.0" layoutY="26.0" prefHeight="25.0" prefWidth="71.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="16.0" prefWidth="23.0" text="R$" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="preco" alignment="CENTER" prefHeight="16.0" prefWidth="46.0" text="100,10" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </Pane>
+            <Pane id="produto-na-sacola" layoutX="25.0" layoutY="425.0" prefHeight="50.0" prefWidth="200.0" styleClass="produto-sacola">
+               <children>
+                  <Label id="nome" layoutX="9.0" layoutY="6.0" prefHeight="16.0" prefWidth="187.0" text="Nome Completo Do Produto" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Black" size="11.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="116.0" layoutY="26.0" prefHeight="25.0" prefWidth="70.0">
+                     <children>
+                        <Label id="remover-item" alignment="CENTER" prefHeight="16.0" prefWidth="23.0" text="-" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <Label id="quantidade" alignment="CENTER" prefHeight="16.0" prefWidth="23.0" text="99" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="add-item" alignment="CENTER" prefHeight="16.0" prefWidth="23.0" text="+" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="4.0" layoutY="26.0" prefHeight="25.0" prefWidth="71.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="16.0" prefWidth="23.0" text="R$" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label id="preco" alignment="CENTER" prefHeight="16.0" prefWidth="46.0" text="100,10" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </Pane>
+            <Label id="nome" layoutX="71.0" layoutY="485.0" prefHeight="16.0" prefWidth="40.0" text="Total" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="11.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" layoutX="103.0" layoutY="481.0" prefHeight="24.0" prefWidth="85.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="16.0" prefWidth="23.0" text="R$" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Black" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label id="preco-total" alignment="CENTER" prefHeight="16.0" prefWidth="46.0" text="100,10" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Black" size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Label id="btt-pagar" alignment="CENTER" layoutX="81.0" layoutY="505.0" prefHeight="30.0" prefWidth="88.0" style="-fx-background-color: green; -fx-background-radius: 20;" text="Pagar" textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="13.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <Pane fx:id="SacolaProdutos" layoutX="706.0" layoutY="55.0" onMouseClicked="#abrirSacolaProdutos" prefHeight="47.0" prefWidth="85.0" styleClass="sacola-compras">
+         <children>
+            <ImageView fitHeight="32.0" fitWidth="20.0" layoutX="32.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Imagens/sacoCompras.png" />
                </image>
             </ImageView>
-            <Label layoutX="33.0" layoutY="22.0" text="0 itens" textFill="WHITE">
+            <Label layoutX="50.0" layoutY="1.0" text="0" textFill="WHITE">
                <font>
                   <Font name="Agency FB" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="17.0" layoutY="2.0" text="R$ 0,00" textFill="WHITE">
+            <Label layoutX="25.0" layoutY="28.0" text="Sacola" textFill="WHITE">
                <font>
-                  <Font name="Agency FB" size="18.0" />
+                  <Font name="Agency FB" size="16.0" />
                </font>
             </Label>
          </children>
@@ -2905,19 +3268,6 @@
                   <Font name="Arial Black" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="InfoDB" layoutX="15.0" layoutY="242.0" text="EXIBIR BANCO DE DADOS" textFill="WHITE" visible="false">
-               <font>
-                  <Font name="Arial Black" size="12.0" />
-               </font>
-            </Label>
-            <Label fx:id="bttAcessarDB" alignment="TOP_CENTER" layoutX="58.0" layoutY="260.0" onMouseClicked="#ligarDesligar" prefHeight="25.0" prefWidth="79.0" styleClass="btt-acessar-db" text="EXIBIR" textFill="WHITE" visible="false">
-               <font>
-                  <Font name="Arial Black" size="12.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Label>
          </children>
       </Pane>
       <VBox alignment="CENTER" layoutX="53.0" layoutY="5.0" prefHeight="37.0" prefWidth="135.0" style="-fx-background-color: #464646; -fx-background-radius: 8; -fx-effect: dropshadow( three-pass-box , rgba(0, 0, 0, 0.76) , 10, 0.0 , 0 , 1 );;">
@@ -2951,6 +3301,21 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
+         </children>
+      </Pane>
+      <Pane id="painel-qr-code" layoutX="130.0" layoutY="50.0" prefHeight="500.0" prefWidth="500.0" styleClass="fundo-qrcode" visible="false">
+         <children>
+            <ImageView id="qrcode-image" fitHeight="398.0" fitWidth="413.0" layoutX="60.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true" />
+            <Label alignment="CENTER" layoutX="174.0" layoutY="14.0" prefHeight="28.0" prefWidth="153.0" text="Preço a pagar" textFill="WHITE">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label id="preco-a-pagar" layoutX="233.0" layoutY="42.0" text="VALOR" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>

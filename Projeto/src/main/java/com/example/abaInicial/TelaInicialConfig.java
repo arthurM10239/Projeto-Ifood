@@ -20,6 +20,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
@@ -71,6 +72,7 @@ public class TelaInicialConfig implements Initializable{
     RestaurantesDB BancoDadosRestaurantes = new RestaurantesDB();
     private Set<Node> listaBlocosRestaurantes;
     private SacolaDeProdutos sacolaDeProdutos = new SacolaDeProdutos();
+    private QrCodePagamento qrCodePagamento = new QrCodePagamento();
     private long lastCheckTime = 0;
     private int quantRest = 0;
     private int quantPratos = 0;
@@ -89,16 +91,19 @@ public class TelaInicialConfig implements Initializable{
         adicionarMonitorDeAltura();
         transicaoCor(SacolaProdutos,200);
         botaoSairConta(bttSairConta,200);
-        //verificarEAtualizar();
         atualizarInfos();
         expandirProduto();
-        
-        
+        Produto p1 = new Produto("Comida", "Alguma Coisa", 20.50);
+        Produto p2 = new Produto("Comida123", "Alguma Coisa1234", 10.50);
+        Produto p3 = new Produto("Comida", "Alguma Coisa", 20.50);
+        sacolaDeProdutos.addProduto(p1);
+        sacolaDeProdutos.addProduto(p2);
+        sacolaDeProdutos.addProduto(p3);
     }
 
 
     //Informações Restaurante
-    void atualizarInfos(){
+    public void atualizarInfos(){
         definirInfoRestaurante();
         attBancoDeDados = new Timeline(
             new KeyFrame(Duration.seconds(atualizacaoDB), event -> {
@@ -109,7 +114,7 @@ public class TelaInicialConfig implements Initializable{
         attBancoDeDados.setCycleCount(Timeline.INDEFINITE); // Rodar infinitamente
         attBancoDeDados.play();
     }
-    void verificarEAtualizar(){
+    public void verificarEAtualizar(){
 
         long currentDbTime = BancoDadosRestaurantes.buscarUltimaModificacao();
         int currentCont = BancoDadosRestaurantes.buscarModificacaoQuantRest();
@@ -148,6 +153,28 @@ public class TelaInicialConfig implements Initializable{
                     nomeRest.setText(restaurantes.get(cont).getNome());    
                 }
                 if (containerEstrelas != null) {
+                    ArrayList<ImageView> estrelas = new ArrayList<>();
+                    double media = Double.parseDouble(mediaAvaliacao.getText());
+                    int mediaAval[] = {
+                        (int)Math.round(media * 100)/100,
+                        (int)(Math.round(media * 100) % 100)
+                    };
+
+                    for (Node estrela : containerEstrelas.getChildren()) {
+                        if(estrela instanceof ImageView){
+                            estrelas.add((ImageView) estrela);
+                        }
+                    }
+
+                    for (int i = 0; i < mediaAval[0]; i++) {
+                        estrelas.get(i).setImage(new Image("imagens/estrelaCheia.png"));
+                    }
+                    if (mediaAval[0] < 5) {
+                        if (mediaAval[1] > 50) {
+                            estrelas.get(mediaAval[0]).setImage(new Image("imagens/estrelaMeia.png"));
+                        }
+                    }
+                    
                 }
                 if (quantidadeAval != null) {
                     quantidadeAval.setText(restaurantes.get(cont).getNumAvaliacoes()+" Avaliações");
@@ -175,7 +202,7 @@ public class TelaInicialConfig implements Initializable{
             
                 for (Node produtoNode : listaProdutos){
 
-                    ((Label)produtoNode.lookup("#nome-produto")).setText("nome");;
+                    ((Label)produtoNode.lookup("#nome-produto")).setText("nome");
 
                     if (produtoCont < produtosDB.size()) {
 
@@ -199,7 +226,7 @@ public class TelaInicialConfig implements Initializable{
                         }
                         if (precoProduto != null) {
 
-                            precoProduto.setText(preco[0] + ",");
+                            precoProduto.setText(preco[0]+".");
                             if (preco[1] <= 10) {
                                 centavos.setText("0" + preco[1] + "");
                             }else if(preco[1] == 0){
@@ -393,13 +420,12 @@ public class TelaInicialConfig implements Initializable{
         boolean estaSelecionado = (boolean) paneAlvo.getProperties().get(ESTADO_SELECIONADO_KEY);
         double xOriginal = (double) paneAlvo.getProperties().get(LAYOUT_X_ORIGINAL_KEY);
         double yOriginal = (double) paneAlvo.getProperties().get(LAYOUT_Y_ORIGINAL_KEY);
-
+        
         Timeline animacaoPosicao;
 
         if (!estaSelecionado) {
             animacaoPosicao = new Timeline(
                 new KeyFrame(Duration.millis(200), 
-                    // Move para a mesma coordenada fixa para todos os Panes
                     new KeyValue(paneAlvo.layoutXProperty(), 50),
                     new KeyValue(paneAlvo.layoutYProperty(), 100),
                     new KeyValue(btt.layoutXProperty(), 176 + 505),
@@ -410,9 +436,6 @@ public class TelaInicialConfig implements Initializable{
                 )
             );
             paneAlvo.toFront();
-            // for (int i = 0; i < (int)DoubleMediaAval; i++) {
-            //     estrelas.get(i).setImage(new Image("imagens/estrelaAmarela.png"));    
-            // }
 
             Pane painelProdutos = (Pane) paneAlvo.lookup("#painel-produtos");
 
@@ -497,7 +520,7 @@ public class TelaInicialConfig implements Initializable{
             abrirSacolaProdutos();
         }
     }
-    public void abrirSacolaProdutos(){//animacao cresce da direita para esquerda
+    public void abrirSacolaProdutos(){
 
         if(!isExpandido[1]){//minimizar todos restauranetes abertos
             for (Node paneAlvo : listaBlocosRestaurantes) {
@@ -547,11 +570,54 @@ public class TelaInicialConfig implements Initializable{
             )
         );
         animacaoPosicao.play();
-
+        attSacolaProdutos();
         isExpandido[1] = !isExpandido[1];
 
     }    
-    
+    public void attSacolaProdutos(){
+        int cont = 0;
+        for(Node produto : LateralSacola.lookupAll("#produto-na-sacola")){
+            if (produto != null) {
+                Pane produtoPane = (Pane)produto;
+                Label nome = (Label)produto.lookup("#nome");
+                Label preco = (Label)produto.lookup("#preco");
+                Label quantidade = (Label)produto.lookup("#quantidade");
+                Label bttAdd = (Label)produto.lookup("#add-item");
+                Label bttRemover = (Label)produto.lookup("#remover-item");
+                produtoPane.setVisible(!nome.getText().equals("Nome Completo Do Produto"));
+                boolean produtoEncontrado = false;
+
+                if (cont < sacolaDeProdutos.getTamanhoSacola()) {
+                    int valorContAtual = cont;
+                    for(Node produtoAtual : LateralSacola.lookupAll("#produto-na-sacola")){
+                        Pane produtoAtualCompara = (Pane)produtoAtual;
+                        Label nomeAtual = (Label)produtoAtual.lookup("#nome");
+                        if (nomeAtual.getText().equals(sacolaDeProdutos.getProdutoIndex(cont).getNome())) {
+                            quantidade.setText(sacolaDeProdutos.getQuantProduto(nomeAtual.getText())+"");
+                            produtoEncontrado = true;
+                            break;
+                        }
+                    }
+                    if(!produtoEncontrado){
+                        nome.setText(sacolaDeProdutos.getProdutoIndex(cont).getNome());
+                        preco.setText(sacolaDeProdutos.getProdutoIndex(cont).getPreco()+"");
+                        quantidade.setText(sacolaDeProdutos.getQuantProduto(nome.getText())+"");
+                    }
+                    bttAdd.setOnMouseClicked(e -> {
+                        sacolaDeProdutos.addProduto(sacolaDeProdutos.getProdutoIndex(valorContAtual));
+                        attSacolaProdutos();
+                    });
+                    bttRemover.setOnMouseClicked(e -> {
+                        sacolaDeProdutos.removerProduto(sacolaDeProdutos.getProdutoIndex(valorContAtual));
+                        attSacolaProdutos();
+                    });
+                }   
+
+            }
+            cont++;
+        }
+    }
+
     public void botaoSairConta(Region valor, int delay){
         Duration duracao = Duration.millis(delay);
         Pane btt = fundoBotaoSairConta;
@@ -600,20 +666,6 @@ public class TelaInicialConfig implements Initializable{
     }
     //metodos de abrir
 
-
-    @FXML
-    private void ligarDesligar(MouseEvent e){
-        
-        Label atual = (Label)e.getSource();
-        if (isExpandido[2]) {
-            atual.setStyle("-fx-background-color:rgb(73, 73, 73);-fx-alignment:TOP-CENTER;");
-            atual.setText("EXIBIR");
-        }else{
-            atual.setStyle("-fx-background-color:rgb(41, 40, 40);-fx-alignment:CENTER;");
-            atual.setText("FECHAR");
-        }
-        isExpandido[2] = !isExpandido[2];
-    }
     public void transicaoCor(Region valor, int delay){
         Duration duracao = Duration.millis(delay);
 
@@ -702,12 +754,12 @@ public class TelaInicialConfig implements Initializable{
                     double alturaAtual = newValue.doubleValue();
                     double alturaAntiga = oldValue.doubleValue();
                     
-                    if (bttAddItem != null && bttComprar != null) {
-                        exibirInfoMenuLateral(alturaAtual, alturaAntiga, (Region)bttAddItem); 
-                        exibirInfoMenuLateral(alturaAtual, alturaAntiga, (Region)bttComprar);
+                        if (bttAddItem != null && bttComprar != null) {
+                            exibirInfoMenuLateral(alturaAtual, alturaAntiga, (Region)bttAddItem); 
+                            exibirInfoMenuLateral(alturaAtual, alturaAntiga, (Region)bttComprar);
+                        }
                     }
-                }
-            });
+                });
 
                 produto.setOnMouseEntered(e ->{
                     produtoPane.toFront();
@@ -748,6 +800,23 @@ public class TelaInicialConfig implements Initializable{
                     recolher.play();
 
                 });
+
+                
+                produto.lookup("#comprar").setOnMouseClicked(e -> {
+                    String valorTotal = ((Label)produto.lookup("#valor-Real")).getText() +((Label)produto.lookup("#valor-centavo")).getText();
+                    painelMae.lookup("#painel-qr-code").setVisible(true);
+                    painelMae.lookup("#painel-qr-code").toFront();
+                    ((Label)painelMae.lookup("#preco-a-pagar")).setText("R$ " + valorTotal);
+                    qrCodePagamento.CriarPagamento("0.01", (ImageView)painelMae.lookup("#qrcode-image"));
+                    System.out.println(valorTotal);
+                });
+
+
+
+                painelMae.lookup("#painel-qr-code").setOnMouseClicked(e -> {
+                    painelMae.lookup("#painel-qr-code").setVisible(false);
+                });
+                
                 
             }
         

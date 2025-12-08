@@ -3,14 +3,16 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.CubicCurve?>
+<?import javafx.scene.shape.Ellipse?>
 <?import javafx.scene.text.Font?>
 
 <Pane fx:id="telaCompleta" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="600.0" styleClass="tela-total" stylesheets="@css/loginEstilo.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.abaLogin.LoginConfig">
@@ -22,7 +24,10 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <Button fx:id="btnCriarConta" layoutX="147.0" layoutY="362.0" mnemonicParsing="false" onAction="#criarConta" prefHeight="27.0" prefWidth="96.0" styleClass="botao-criar-conta" text="Criar Conta" />
+            <Button fx:id="btnCriarConta" layoutX="147.0" layoutY="362.0" mnemonicParsing="false" onAction="#criarConta" prefHeight="27.0" prefWidth="96.0" styleClass="botao-criar-conta" text="Criar Conta">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
             <Label fx:id="mudarEntrarConta" layoutX="18.0" layoutY="358.0" onMouseClicked="#mudarTela" prefHeight="34.0" prefWidth="125.0" text="Você ja tem uma conta?&#10;            Faca login&#10;&#10;" textFill="WHITE">
                <font>
                   <Font size="11.0" />
@@ -38,7 +43,7 @@
                         <Font name="Arial" size="12.0" />
                      </font>
                   </Label>
-                  <TextField id="field-usuario" fx:id="fieldNomeUsuario" styleClass="txtfield-designer">
+                  <TextField id="field-usuario" fx:id="fieldNomeUsuario" promptText="digite seu nome" styleClass="txtfield-designer">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -52,45 +57,39 @@
                         <Font name="Arial" size="12.0" />
                      </font>
                   </Label>
-                  <TextField id="field-email" fx:id="fieldEmail" prefHeight="27.0" prefWidth="92.0" styleClass="txtfield-designer">
+                  <TextField id="field-email" fx:id="fieldEmail" prefHeight="27.0" prefWidth="92.0" promptText="digite seu email" styleClass="txtfield-designer">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
                   </TextField>
                </children>
             </VBox>
-            <VBox layoutX="41.0" layoutY="230.0" prefHeight="43.0" prefWidth="175.0" spacing="5.0">
+            <VBox layoutX="41.0" layoutY="175.0" prefHeight="43.0" prefWidth="175.0" spacing="5.0">
                <children>
                   <Label text="Senha" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="12.0" />
                      </font>
                   </Label>
-                  <TextField id="field-senha" fx:id="fieldSenha" styleClass="txtfield-designer">
+                  <TextField id="field-senha" fx:id="fieldSenha" promptText="digite sua senha" styleClass="txtfield-designer" visible="false">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
                   </TextField>
                </children>
             </VBox>
-            <VBox layoutX="41.0" layoutY="296.0" prefHeight="43.0" prefWidth="175.0" spacing="5.0">
+            <VBox layoutX="41.0" layoutY="241.0" prefHeight="43.0" prefWidth="175.0" spacing="5.0">
                <children>
                   <Label text="Confirmar Senha" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="12.0" />
                      </font>
                   </Label>
-                  <TextField id="field-confirm-senha" fx:id="fieldConfirmSenha" styleClass="txtfield-designer">
+                  <TextField id="field-confirm-senha" fx:id="fieldConfirmSenha" promptText="confirme sua senha" styleClass="txtfield-designer" visible="false">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
                   </TextField>
-               </children>
-            </VBox>
-            <VBox layoutX="41.0" layoutY="177.0" prefHeight="52.0" prefWidth="175.0" spacing="10.0">
-               <children>
-                  <CheckBox fx:id="checkCliente" mnemonicParsing="false" onAction="#tipoDeUsuario" prefHeight="17.0" prefWidth="199.0" styleClass="checkBox-desginer" text="Usuario( Cliente )" textFill="WHITE" />
-                  <CheckBox fx:id="checkDono" mnemonicParsing="false" onAction="#tipoDeUsuario" prefHeight="17.0" prefWidth="175.0" styleClass="checkBox-desginer" text="Restaurante( Dono / Adm )" textFill="WHITE" />
                </children>
             </VBox>
             <ImageView fx:id="alertaUsuario" fitHeight="25.0" fitWidth="20.0" layoutX="225.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" visible="false">
@@ -103,17 +102,17 @@
                   <Image url="@../../Imagens/Alerta.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="alertaTipo" fitHeight="25.0" fitWidth="20.0" layoutX="225.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="alertaTipo" fitHeight="25.0" fitWidth="20.0" layoutX="242.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../../Imagens/Alerta.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="alertaSenha" fitHeight="25.0" fitWidth="20.0" layoutX="226.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="alertaSenha" fitHeight="25.0" fitWidth="20.0" layoutX="256.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../../Imagens/Alerta.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="alertaConfirmSenha" fitHeight="25.0" fitWidth="20.0" layoutX="225.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="alertaConfirmSenha" fitHeight="25.0" fitWidth="20.0" layoutX="225.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../../Imagens/Alerta.png" />
                </image>
@@ -128,10 +127,10 @@
                   <Image url="@../../Imagens/simboloExclamacao.png" />
                </image>
             </ImageView>
-            <Label fx:id="dicaSenhaCriar" layoutX="47.0" layoutY="277.0" prefHeight="17.0" prefWidth="164.0" text="avisoSenha" textFill="#fcc382" visible="false" />
             <Label layoutX="148.0" layoutY="134.0" prefHeight="17.0" prefWidth="72.0" text="\@gmail.com" textFill="WHITE" />
             <Label fx:id="dicaNomeUsuario" layoutX="47.0" layoutY="87.0" prefHeight="17.0" prefWidth="164.0" text="avisoUsuario" textFill="#fcc382" visible="false" />
             <Label fx:id="dicaEmail" layoutX="47.0" layoutY="154.0" prefHeight="17.0" prefWidth="164.0" text="avisoEmail" textFill="#fcc382" visible="false" />
+            <Label fx:id="dicaSenhaCriar" layoutX="50.0" layoutY="218.0" prefHeight="17.0" prefWidth="164.0" text="avisoSenha" textFill="#fcc382" visible="false" />
             <ImageView fx:id="alertaUsuarioCriarExistente" fitHeight="25.0" fitWidth="25.0" layoutX="222.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../../Imagens/simboloCorreto.png" />
@@ -142,11 +141,38 @@
                   <Image url="@../../Imagens/simboloCorreto.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="alertaSenhaCriarExistente" fitHeight="25.0" fitWidth="25.0" layoutX="222.0" layoutY="249.0" pickOnBounds="true" preserveRatio="true" visible="false">
-               <image>
-                  <Image url="@../../Imagens/simboloCorreto.png" />
-               </image>
-            </ImageView>
+            <HBox layoutX="27.0" layoutY="311.0" prefHeight="30.0" prefWidth="210.0" spacing="10.0">
+               <children>
+                  <Label fx:id="checarDono" alignment="CENTER" onMouseClicked="#escolherTipoUsuario" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #b3b3b3ff; -fx-background-radius: 8;" text="DONO/ADM">
+                     <font>
+                        <Font name="Arial Black" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="checarCliente" alignment="CENTER" onMouseClicked="#escolherTipoUsuario" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #b3b3b3ff; -fx-background-radius: 8;" text="CLIENTE">
+                     <font>
+                        <Font name="Arial Black" size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <PasswordField fx:id="fieldsenhaescondida" layoutX="41.0" layoutY="195.0" prefHeight="25.0" prefWidth="175.0" promptText="••••••••" style="-fx-background-radius: 8 0 0 8; -fx-text-fill: white; -fx-background-color: #8d0d0d; -fx-effect: dropshadow( three-pass-box , rgba(34, 32, 32, 0.733) , 5, 0.0 , 0 , 1 );" />
+            <PasswordField fx:id="fieldconfsenhaescondida" layoutX="41.0" layoutY="260.0" prefHeight="27.0" prefWidth="175.0" promptText="••••••••" styleClass="txtfield-designer" />
+            <Pane fx:id="painelOlho" layoutX="214.0" layoutY="195.0" onMouseClicked="#vizualizarSenha" prefHeight="25.0" prefWidth="39.0" style="-fx-background-radius: 0 4 4 0; -fx-background-color: black; -fx-effect: dropshadow( three-pass-box , rgba(34, 32, 32, 0.733) , 5, 0.0 , 0 , 1 );">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <children>
+                  <Pane prefHeight="25.0" prefWidth="39.0">
+                     <children>
+                        <CubicCurve fx:id="palpebra_olho" controlX1="20.0" controlX2="35.0" controlY1="29.0" controlY2="29.0" endX="44.0" endY="30.0" fill="WHITE" layoutX="-9.0" layoutY="-17.0" startX="13.0" startY="30.0" stroke="BLACK" />
+                        <CubicCurve fx:id="palpebra_olho2" controlX1="20.0" controlX2="35.0" controlY1="1.0" controlY2="1.0" endX="44.0" fill="WHITE" layoutX="-8.0" layoutY="13.0" startX="13.0" stroke="BLACK" />
+                        <Ellipse fx:id="pupila" layoutX="20.0" layoutY="12.0" radiusX="4.0" radiusY="6.0" stroke="BLACK" strokeType="INSIDE" />
+                        <CubicCurve controlX1="20.0" controlX2="35.0" controlY1="20.0" controlY2="20.0" endX="45.0" endY="30.0" fill="#ffffff00" layoutX="-9.0" layoutY="-18.0" startX="13.0" startY="30.0" stroke="WHITE" />
+                        <CubicCurve fx:id="bordaolho2" controlX1="20.0" controlX2="35.0" controlY1="10.0" controlY2="10.0" endX="45.0" fill="#ffffff00" layoutX="-9.0" layoutY="12.0" startX="13.0" stroke="WHITE" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
          </children>
       </Pane>
       <Pane fx:id="entrarConta" layoutX="288.0" layoutY="45.0" prefHeight="360.0" prefWidth="260.0" visible="false">
@@ -172,7 +198,7 @@
                         <Font name="Arial" size="12.0" />
                      </font>
                   </Label>
-                  <TextField id="field-usuario" fx:id="fieldUsuarioEmail" styleClass="txtfield-designer">
+                  <TextField id="field-usuario" fx:id="fieldUsuarioEmail" promptText="digite o nome" styleClass="txtfield-designer">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -186,7 +212,7 @@
                         <Font name="Arial" size="12.0" />
                      </font>
                   </Label>
-                  <TextField id="field-senha" fx:id="fieldEntrarSenha" styleClass="txtfield-designer">
+                  <TextField id="field-senha" fx:id="fieldEntrarSenha" prefHeight="25.0" prefWidth="150.0" promptText="digite a senha" styleClass="txtfield-designer" visible="false">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -199,7 +225,7 @@
                   <Image url="@../../Imagens/Alerta.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="alertaEntrarSenha" fitHeight="25.0" fitWidth="20.0" layoutX="223.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="alertaEntrarSenha" fitHeight="25.0" fitWidth="20.0" layoutX="257.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../../Imagens/Alerta.png" />
                </image>
@@ -210,6 +236,23 @@
                   <Image url="@../../Imagens/simboloCorreto.png" />
                </image>
             </ImageView>
+            <PasswordField fx:id="fieldsenhaescondida1" layoutX="43.0" layoutY="164.0" prefHeight="25.0" prefWidth="175.0" promptText="••••••••" styleClass="txtfield-designer" />
+            <Pane fx:id="painelOlho1" layoutX="216.0" layoutY="163.0" onMouseClicked="#vizualizarSenha" prefHeight="25.0" prefWidth="39.0" style="-fx-background-radius: 0 4 4 0; -fx-background-color: black; -fx-effect: dropshadow( three-pass-box , rgba(34, 32, 32, 0.733) , 5, 0.0 , 0 , 1 );">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <children>
+                  <Pane prefHeight="25.0" prefWidth="39.0">
+                     <children>
+                        <CubicCurve fx:id="palpebra_olho1" controlX1="20.0" controlX2="35.0" controlY1="29.0" controlY2="29.0" endX="44.0" endY="30.0" fill="WHITE" layoutX="-9.0" layoutY="-17.0" startX="13.0" startY="30.0" stroke="BLACK" />
+                        <CubicCurve fx:id="palpebra_olho21" controlX1="20.0" controlX2="35.0" controlY1="1.0" controlY2="1.0" endX="44.0" fill="WHITE" layoutX="-8.0" layoutY="13.0" startX="13.0" stroke="BLACK" />
+                        <Ellipse fx:id="pupila1" layoutX="20.0" layoutY="12.0" radiusX="4.0" radiusY="6.0" stroke="BLACK" strokeType="INSIDE" />
+                        <CubicCurve controlX1="20.0" controlX2="35.0" controlY1="20.0" controlY2="20.0" endX="45.0" endY="30.0" fill="#ffffff00" layoutX="-9.0" layoutY="-18.0" startX="13.0" startY="30.0" stroke="WHITE" />
+                        <CubicCurve controlX1="20.0" controlX2="35.0" controlY1="10.0" controlY2="10.0" endX="45.0" fill="#ffffff00" layoutX="-9.0" layoutY="12.0" startX="13.0" stroke="WHITE" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
          </children>
       </Pane>
       <Pane layoutX="2.0" layoutY="2.0" prefHeight="446.0" prefWidth="230.0" styleClass="tela-usuario">
@@ -280,14 +323,14 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="174.0" layoutY="167.0" text="Verifique Seu Email" textFill="WHITE">
+                  <Label layoutX="174.0" layoutY="184.0" text="Verifique Seu Email" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
                   <HBox alignment="CENTER" layoutX="22.0" layoutY="102.0" prefHeight="65.0" prefWidth="456.0" spacing="20.0">
                      <children>
-                        <TextField fx:id="fieldCodigo" alignment="CENTER" onAction="#verificarCodigo" prefHeight="50.0" prefWidth="101.0" promptText="000000">
+                        <TextField fx:id="fieldCodigo" alignment="CENTER" onAction="#verificarCodigo" prefHeight="50.0" prefWidth="101.0" promptText="000000" style="-fx-background-radius: 8;">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -335,5 +378,12 @@
             </Pane>
          </children>
       </Pane>
+      <Pane fx:id="carregando" layoutX="245.0" layoutY="139.0" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 30 0 30 0; -fx-effect: dropshadow( three-pass-box , rgba(34, 32, 32, 0.733) , 5, 0.0 , 0 , 1 );" visible="false" />
+      <Pane fx:id="carregando1" layoutX="257.0" layoutY="150.0" prefHeight="125.0" prefWidth="125.0" style="-fx-background-radius: 0 30 0 30; -fx-border-color: red; -fx-border-width: 4; -fx-border-radius: 0 30 0 30; -fx-effect: dropshadow( three-pass-box , rgba(34, 32, 32, 0.733) , 5, 0.0 , 0 , 1 );" visible="false" />
+      <Label fx:id="txtEnviandoCodigo" alignment="CENTER" layoutX="265.0" layoutY="192.0" text="Enviando Codigo&#10;De Confirmação&#10;     Para Email" textFill="#c96666" visible="false">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

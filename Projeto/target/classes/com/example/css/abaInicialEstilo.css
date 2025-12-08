@@ -24,7 +24,7 @@
 }
 
 .exposicao-restaurante{
-    -fx-background-color:#f00;
+    -fx-background-color:#ff0000 ;
     -fx-background-radius:20 20 0 20;
     -fx-transition: -fx-background-color 0.3s ease-in-out;
 }
@@ -73,4 +73,12 @@
     -fx-background-color:rgb(38, 219, 14);
     -fx-background-radius:8px;
     -fx-cursor:HAND;
+}
+.fundo-qrcode{
+    -fx-background-color:rgba(0, 0, 0, 0.582);
+    -fx-background-radius:8px;
+}
+.produto-sacola{
+    -fx-background-color:rgba(0, 0, 0, 0.582);
+    -fx-background-radius:10px;
 }

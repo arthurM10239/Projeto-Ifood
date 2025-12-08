@@ -8,6 +8,10 @@ import java.util.ResourceBundle;
 import com.example.Main;
 import com.example.abaInicial.TelaInicialConfig;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.RotateTransition;
+import javafx.animation.ScaleTransition;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,11 +21,16 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.CubicCurve;
+import javafx.scene.shape.Ellipse;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class LoginConfig implements Initializable{
     
@@ -47,13 +56,19 @@ public class LoginConfig implements Initializable{
     @FXML private Label txtCriarConta;
     @FXML private Label txtLogarConta;
 
-    @FXML private CheckBox checkCliente;
-    @FXML private CheckBox checkDono;
+    @FXML private Label checarDono;
+    @FXML private Label checarCliente;
+    @FXML private String tipoUsr;
 
     @FXML private TextField fieldNomeUsuario;
     @FXML private TextField fieldEmail;
     @FXML private TextField fieldSenha;
     @FXML private TextField fieldConfirmSenha;
+
+    @FXML private PasswordField fieldsenhaescondida;
+    @FXML private PasswordField fieldsenhaescondida1;
+    @FXML private PasswordField fieldconfsenhaescondida;
+    @FXML private Label bttVizualizarSenha;
 
     @FXML private TextField fieldUsuarioEmail;
     @FXML private TextField fieldEntrarSenha;
@@ -82,16 +97,50 @@ public class LoginConfig implements Initializable{
     @FXML private TextField fieldCodigo;
     @FXML private Label labelErro;
     @FXML private Pane telaConfirmacaoEmail;
+    @FXML private Pane carregando;
+    @FXML private Pane carregando1;
+    @FXML private Label txtEnviandoCodigo;
     
+    @FXML private CubicCurve palpebra_olho;
+    @FXML private CubicCurve palpebra_olho2;
+    @FXML private Ellipse pupila;
+    @FXML private Pane painelOlho;
+
+    @FXML private CubicCurve palpebra_olho1;
+    @FXML private CubicCurve palpebra_olho21;
+    @FXML private Ellipse pupila1;
+    @FXML private Pane painelOlho1;
+
 
     private double xOffset = 0;
     private double yOffset = 0;
+    private double cima = 0.0;
+    private double baixo = 0.0;
 
     //tudo que executa quando app é inicializado
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         txtCriarConta.setStyle("-fx-background-color: #881919;");
-        
+        observarAttInfos();
+        cima = palpebra_olho.getControlY1();
+        baixo = palpebra_olho2.getControlY1();
+
+        telaCompleta.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                if (entrarConta.isVisible()) {
+                    entrarConta(); 
+                    System.out.println("Enter global: Acionando Login.");
+                } else if (criarConta.isVisible()) {
+                    criarConta();
+                }
+                event.consume(); 
+            }
+        });
+
+    }
+    //tudo que executa quando app é inicializado
+
+    public void observarAttInfos(){
         fieldNomeUsuario.textProperty().addListener((observable, oldValue, newValue) -> {
             if(!criarConta.isVisible()){return;}
             alertaUsuario.setVisible(fieldCondicao(fieldNomeUsuario));
@@ -104,6 +153,9 @@ public class LoginConfig implements Initializable{
                 } else if (fieldNomeUsuario.getText().contains(" ")) {
                     dicaNomeUsuario.setVisible(true);
                     dicaNomeUsuario.setText("Evite espaço");
+                } else if (fieldNomeUsuario.getText().length() > 15) {
+                    dicaNomeUsuario.setVisible(true);
+                    dicaNomeUsuario.setText("Maximo de 15 caracteres");
                 }
                 else{
                     dicaNomeUsuario.setVisible(false);   
@@ -142,12 +194,6 @@ public class LoginConfig implements Initializable{
             }
 
         });
-        checkCliente.selectedProperty().addListener((observable, oldValue, newValue) -> {
-            alertaTipo.setVisible(false);
-        });
-        checkDono.selectedProperty().addListener((observable, oldValue, newValue) -> {
-            alertaTipo.setVisible(false);
-        });
         fieldSenha.textProperty().addListener((observable, oldValue, newValue) -> {
             if(!criarConta.isVisible()){return;}
             alertaConfirmSenha.setVisible( fieldConfirmSenha.getText().equals(fieldSenha.getText()) ? false : true);
@@ -167,11 +213,33 @@ public class LoginConfig implements Initializable{
             
 
         });
+        fieldsenhaescondida.textProperty().addListener((observable, oldValue, newValue) -> {
+            if(!criarConta.isVisible()){return;}
+            alertaConfirmSenha.setVisible( fieldConfirmSenha.getText().equals(fieldsenhaescondida.getText()) ? false : true);
+            alertaSenha.setVisible(fieldCondicao(fieldsenhaescondida));
+            if (fieldsenhaescondida.getText().contains(" ")) {
+                dicaSenhaCriar.setVisible(true);
+                dicaSenhaCriar.setText("Evite espaço");
+            }
+            else if(fieldsenhaescondida.getText().length() < 8 && !fieldsenhaescondida.getText().isEmpty()){
+                dicaSenhaCriar.setVisible(true);
+                dicaSenhaCriar.setText("minimo de 8 caracteres");
+            }
+            else{
+                dicaSenhaCriar.setVisible(false);
+            }
+
+            
+
+        });
         fieldConfirmSenha.textProperty().addListener((observable, oldValue, newValue) -> {
             if(!criarConta.isVisible()){return;}
             alertaConfirmSenha.setVisible( fieldConfirmSenha.getText().equals(fieldSenha.getText()) ? false : true);
         });
-
+        fieldconfsenhaescondida.textProperty().addListener((observable, oldValue, newValue) -> {
+            if(!criarConta.isVisible()){return;}
+            alertaConfirmSenha.setVisible( fieldconfsenhaescondida.getText().equals(fieldSenha.getText()) ? false : true);
+        });
         fieldUsuarioEmail.textProperty().addListener((observable, oldValue, newValue) -> {
             if(!entrarConta.isVisible()){return;}
             alertaUsuarioEmail.setVisible(fieldCondicao(fieldUsuarioEmail));
@@ -215,10 +283,7 @@ public class LoginConfig implements Initializable{
                 dicaSenhaEntrar.setText("Evite Espaço");
             }
         });
-
     }
-    //tudo que executa quando app é inicializado
-
     //arrastar janela
     @FXML
     public void onMousePressed(MouseEvent event) {
@@ -271,15 +336,38 @@ public class LoginConfig implements Initializable{
         dicaSenhaCriar.setVisible(false);
         dicaNomeUsuario.setVisible(false);
         dicaEmail.setVisible(false);
-        
+        checarDono.setStyle("-fx-background-color: #b3b3b3ff;-fx-background-radius:8;-fx-border-color: transparent;");
+        checarCliente.setStyle("-fx-background-color: #b3b3b3ff;-fx-background-radius:8;-fx-border-color: transparent;");
+        checarDono.setScaleX(1.0);
+        checarDono.setScaleY(1.0);
+        checarCliente.setScaleX(1.0);
+        checarCliente.setScaleY(1.0);
+
+        tipoUsr = null;
+
+        fieldSenha.setVisible(false);
+        fieldsenhaescondida.setVisible(true);
+        fieldConfirmSenha.setVisible(false);
+        fieldconfsenhaescondida.setVisible(true);
+
+        timeline = new Timeline(
+                new KeyFrame(Duration.millis(100), 
+                    new KeyValue(palpebra_olho.controlY1Property(), cima),
+                    new KeyValue(palpebra_olho.controlY2Property(), cima),
+                    new KeyValue(palpebra_olho2.controlY1Property(), baixo),
+                    new KeyValue(palpebra_olho2.controlY2Property(), baixo),
+                    new KeyValue(pupila.layoutXProperty(),20)
+                )
+            );
+        timeline.play();
+
+        fieldsenhaescondida.setText("");
+        fieldconfsenhaescondida.setText("");
         fieldNomeUsuario.setText("");
         fieldEmail.setText("");
         fieldSenha.setText("");
         fieldConfirmSenha.setText("");
-        if(checkCliente.isSelected() || checkDono.isSelected()){
-            checkCliente.setSelected(false);
-            checkDono.setSelected(false);
-        }
+        
         txtCriarConta.setStyle("-fx-background-color: #a82020;");
         txtLogarConta.setStyle("-fx-background-color: #881919;");
     }
@@ -292,6 +380,20 @@ public class LoginConfig implements Initializable{
         dicaSenhaEntrar.setVisible(false);
         dicaUsuarioEmail.setVisible(false);
 
+        fieldEntrarSenha.setVisible(false);
+        fieldsenhaescondida1.setVisible(true);
+
+        timeline = new Timeline(
+                new KeyFrame(Duration.millis(100), 
+                    new KeyValue(palpebra_olho1.controlY1Property(), cima),
+                    new KeyValue(palpebra_olho1.controlY2Property(), cima),
+                    new KeyValue(palpebra_olho21.controlY1Property(), baixo),
+                    new KeyValue(palpebra_olho21.controlY2Property(), baixo)
+                )
+            );
+        timeline.play();
+
+        fieldsenhaescondida1.setText("");
         fieldUsuarioEmail.setText("");
         fieldEntrarSenha.setText("");
 
@@ -300,20 +402,30 @@ public class LoginConfig implements Initializable{
     }
 
 
-    public void tipoDeUsuario(ActionEvent event) {
-
-        CheckBox clicado = (CheckBox) event.getSource();
-
-        if (clicado.isSelected()) {
-            if (clicado == checkCliente) {
-                checkDono.setSelected(false);
-            } else if (clicado == checkDono) {
-                checkCliente.setSelected(false);
-            }
-        } else {
-            clicado.setSelected(true);
+    public void escolherTipoUsuario(MouseEvent event) {
+        ScaleTransition crescer = new ScaleTransition(Duration.millis(100));
+        ScaleTransition diminuir = new ScaleTransition(Duration.millis(100));
+        crescer.setToX(1.1);
+        crescer.setToY(1.1);
+        diminuir.setToX(1.0);
+        diminuir.setToY(1.0);
+        Label clicado = (Label) event.getSource();
+        if (clicado == checarCliente) {
+            checarCliente.setStyle("-fx-text-fill:white;-fx-background-color: #00ff22ff;-fx-background-radius:8;-fx-border-color: #4bdd27ff; -fx-border-width: 2;-fx-border-radius:8;");
+            checarDono.setStyle("-fx-background-color: #b3b3b3ff;-fx-background-radius:8;-fx-border-color: transparent;");
+            tipoUsr = "CLIENTE";
+            crescer.setNode(checarCliente);
+            diminuir.setNode(checarDono);
+            
+        } else if (clicado == checarDono) {
+            checarDono.setStyle("-fx-text-fill:white;-fx-background-color: #00ff22ff;-fx-background-radius:8;-fx-border-color: #4bdd27ff; -fx-border-width: 2;-fx-border-radius:8;");
+            checarCliente.setStyle("-fx-background-color:#b3b3b3ff;-fx-background-radius:8;-fx-border-color: transparent;");
+            tipoUsr = "DONO/ADM";
+            crescer.setNode(checarDono);
+            diminuir.setNode(checarCliente);
         }
-
+        crescer.play();
+        diminuir.play();
     }
 
     public boolean fieldCondicao(TextField info){
@@ -329,16 +441,15 @@ public class LoginConfig implements Initializable{
 
     //funcao para botao de criar
     public void criarConta(){
-        
-        String acesso = checkCliente.isSelected() ?"CLIENTE":"DONO/ADM";
+        String acesso = tipoUsr;
         String nome = fieldNomeUsuario.getText();
         String email = fieldEmail.getText();
         String senha = fieldSenha.getText();
         codigoCorreto = gerarCodigoAleatorio(6);
 
-        if (nome.length() > 0 && email.length() > 0 && senha.length() > 0 && 
+        if (nome.length() > 0 && !dicaNomeUsuario.isVisible() && email.length() > 0 && senha.length() > 0 && 
         fieldConfirmSenha.getText().equals(senha) && senha.length() >= 8 && 
-        acesso != null && !fieldNomeUsuario.getText().contains(" ") && 
+        !fieldNomeUsuario.getText().contains(" ") && 
         !fieldSenha.getText().contains(" ") && !fieldEmail.getText().contains(" ")) {
 
             alertaUsuario.setVisible(false);
@@ -350,10 +461,6 @@ public class LoginConfig implements Initializable{
             emailExistente.setVisible(false);
             dicaSenhaCriar.setVisible(false);
 
-            email+= "@gmail.com";
-            boolean sucessoEnvio = emailService.enviarCodigoConfirmacao(email, codigoCorreto);
-
-            telaCompleta.setCursor(Cursor.WAIT);
             try {
                 //aviso
                 if (usuario.nomeUsuarioExiste(nome) && usuario.emailExiste(email)) {
@@ -378,32 +485,60 @@ public class LoginConfig implements Initializable{
                     telaDeAviso.setVisible(true);
                     return;
                 }
+                else if (acesso == null) {
+                    txtErroCadastro.setText("Selecione um tipo de usuario");
+                    txtErroCadastro.setVisible(true);
+                    alertaTipo.setVisible(true);
+                    telaDeAviso.setVisible(true);
+                    return;
+                }
+
                 //aviso
+                email+= "@gmail.com";
+                boolean sucessoEnvio = emailService.enviarCodigoConfirmacao(email, codigoCorreto);
                 
                 if (sucessoEnvio) {
-                    telaCompleta.setCursor(Cursor.DEFAULT);
+                    
                     c1 = new Usuario(acesso,nome,email,senha);
-                    if (!telaConfirmacaoEmail.isVisible()) {telaConfirmacaoEmail.setVisible(true);}
+                    carregando.setVisible(true);
+                    carregando1.setVisible(true);
+                    txtEnviandoCodigo.setVisible(true);
+                    RotateTransition carregarBranco = new RotateTransition(Duration.seconds(1), carregando);
+                    RotateTransition carregarPreto = new RotateTransition(Duration.seconds(1), carregando1);
+                    carregarBranco.setByAngle(360);
+                    carregarBranco.setCycleCount(5);
+                    carregarBranco.setAutoReverse(true);
+                    carregarPreto.setByAngle(-360);
+                    carregarPreto.setCycleCount(5);
+                    carregarPreto.setAutoReverse(true);
+                    
+                    carregarBranco.setOnFinished(e -> {
+                        carregando.setVisible(false);
+                        carregando1.setVisible(false);
+                        txtEnviandoCodigo.setVisible(false);
+                        if (!telaConfirmacaoEmail.isVisible()) {telaConfirmacaoEmail.setVisible(true);labelErro.setText("Por favor, insira o código. ( Enter para confirmar )");}
+                    });
+                    carregarBranco.play();
+                    carregarPreto.play();
 
                 }else {
                     // FALHA NO ENVIO
-                    telaCompleta.setCursor(Cursor.DEFAULT);
                     txtErroCadastro.setText("Falha ao enviar o e-mail de confirmação. \nVerifique o endereço ou a conexão.");
                     telaDeAviso.setVisible(true);
                 }
                 
             }catch (SQLException e) {
-
             System.err.println("ERRO DE BANCO DE DADOS: Falha ao registrar o usuário. " + e.getMessage());
-            
             } 
+            
         
         } 
         else {//Exibir alertas
             
             alertaUsuario.setVisible(fieldCondicao(fieldNomeUsuario));
+            if(dicaNomeUsuario.isVisible()){alertaUsuario.setVisible(true);}
             alertaEmail.setVisible(fieldCondicao(fieldEmail));
-            alertaTipo.setVisible( checkCliente.isSelected() || checkDono.isSelected() ? false : true );
+            alertaTipo.setVisible(tipoUsr == null ? true : false);
             alertaSenha.setVisible(fieldSenha.getText().length() >= 8 ? false : true);
             if(fieldSenha.getText().length() < 8 && !fieldSenha.getText().isEmpty()){
                 dicaSenhaCriar.setVisible(true);
@@ -412,7 +547,6 @@ public class LoginConfig implements Initializable{
                 dicaSenhaCriar.setVisible(false);
             }
             alertaConfirmSenha.setVisible( fieldConfirmSenha.getText().equals(fieldSenha.getText()) ? false : true);
-            
         }
 
     }
@@ -504,7 +638,7 @@ public class LoginConfig implements Initializable{
         String codigoDigitado = fieldCodigo.getText();
 
         if (codigoDigitado.isEmpty()) {
-             labelErro.setText("Por favor, insira o código.");
+             labelErro.setText("Por favor, insira o código. ( Enter para confirmar )");
              return;
         }
 
@@ -535,12 +669,91 @@ public class LoginConfig implements Initializable{
             }
 
         } else {
-            labelErro.setText("Código de confirmação\n inválido. Tente novamente.");
+            labelErro.setText("Código de confirmação inválido. Tente novamente.");
         }
     }
     public void fecharConfirmacaoEmail(){
         telaConfirmacaoEmail.setVisible(false);
     }
     //metodos para codigo de email
+
+    @FXML
+    public void vizualizarSenha(MouseEvent event){
+
+        if (entrarConta.isVisible()) {
+            if(fieldEntrarSenha.isVisible()){
+            fieldsenhaescondida1.setText(fieldEntrarSenha.getText());
+            fieldEntrarSenha.setVisible(false);
+            fieldsenhaescondida1.setVisible(true);
+
+            timeline = new Timeline(
+                new KeyFrame(Duration.millis(100), 
+                    new KeyValue(palpebra_olho1.controlY1Property(), cima),
+                    new KeyValue(palpebra_olho1.controlY2Property(), cima),
+                    new KeyValue(palpebra_olho21.controlY1Property(), baixo),
+                    new KeyValue(palpebra_olho21.controlY2Property(), baixo)
+                )
+            );
+
+            }else {
+                fieldEntrarSenha.setText(fieldsenhaescondida1.getText());
+                fieldsenhaescondida1.setVisible(false);
+                fieldEntrarSenha.setVisible(true);
+                
+                cima = palpebra_olho1.getControlY1();
+                baixo = palpebra_olho21.getControlY1();
+                timeline = new Timeline(
+                    new KeyFrame(Duration.millis(100), 
+                        new KeyValue(palpebra_olho1.controlY1Property(), palpebra_olho1.getEndY()-9),
+                        new KeyValue(palpebra_olho1.controlY2Property(), palpebra_olho1.getEndY()-9),
+                        new KeyValue(palpebra_olho21.controlY1Property(), palpebra_olho21.getEndY()+7),
+                        new KeyValue(palpebra_olho21.controlY2Property(), palpebra_olho21.getEndY()+7)
+                            
+                    )
+                );
+            }
+        }else{
+            if(fieldSenha.isVisible()){
+            fieldsenhaescondida.setText(fieldSenha.getText());
+            fieldconfsenhaescondida.setText(fieldConfirmSenha.getText());
+            fieldSenha.setVisible(false);
+            fieldsenhaescondida.setVisible(true);
+            fieldConfirmSenha.setVisible(false);
+            fieldconfsenhaescondida.setVisible(true);
+
+            timeline = new Timeline(
+                new KeyFrame(Duration.millis(100), 
+                    new KeyValue(palpebra_olho.controlY1Property(), cima),
+                    new KeyValue(palpebra_olho.controlY2Property(), cima),
+                    new KeyValue(palpebra_olho2.controlY1Property(), baixo),
+                    new KeyValue(palpebra_olho2.controlY2Property(), baixo),
+                    new KeyValue(pupila.layoutXProperty(),20)
+                )
+            );
+
+            }else {
+                fieldSenha.setText(fieldsenhaescondida.getText());
+                fieldConfirmSenha.setText(fieldconfsenhaescondida.getText());
+                fieldsenhaescondida.setVisible(false);
+                fieldSenha.setVisible(true);
+                fieldconfsenhaescondida.setVisible(false);
+                fieldConfirmSenha.setVisible(true);
+                
+                cima = palpebra_olho.getControlY1();
+                baixo = palpebra_olho2.getControlY1();
+                timeline = new Timeline(
+                    new KeyFrame(Duration.millis(100), 
+                        new KeyValue(palpebra_olho.controlY1Property(), palpebra_olho.getEndY()-9),
+                        new KeyValue(palpebra_olho.controlY2Property(), palpebra_olho.getEndY()-9),
+                        new KeyValue(palpebra_olho2.controlY1Property(), palpebra_olho2.getEndY()+7),
+                        new KeyValue(palpebra_olho2.controlY2Property(), palpebra_olho2.getEndY()+7)
+                            
+                    )
+                );
+            }
+        }
+        
+        timeline.play();
+    }
 
 }

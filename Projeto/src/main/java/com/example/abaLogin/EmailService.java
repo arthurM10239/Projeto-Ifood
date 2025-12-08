@@ -10,6 +10,9 @@ import jakarta.mail.Session;
 import jakarta.mail.Transport;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
+import javafx.animation.RotateTransition;
+import javafx.scene.layout.Pane;
+import javafx.util.Duration;
 
 public class EmailService {
 
@@ -17,6 +20,7 @@ public class EmailService {
     private static final String SMTP_PORT = "587"; // Porta TSL/STARTTLS
     private static final String SENDER_EMAIL = "emailteste32112@gmail.com"; 
     private static final String SENDER_PASSWORD = "jrfsfcymccgjnzcf"; 
+    private boolean sucesso;
     
     public boolean enviarCodigoConfirmacao(String destinatario, String codigo) {
 
