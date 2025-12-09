@@ -1,6 +1,6 @@
 package com.example.abaInicial;
-import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import com.example.Main;
@@ -8,7 +8,6 @@ import com.example.abaLogin.Usuario;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
-import javafx.animation.ScaleTransition;
 import javafx.animation.Timeline;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -17,8 +16,6 @@ import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -31,7 +28,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 public class TelaInicialConfig implements Initializable{
@@ -93,12 +89,6 @@ public class TelaInicialConfig implements Initializable{
         botaoSairConta(bttSairConta,200);
         atualizarInfos();
         expandirProduto();
-        Produto p1 = new Produto("Comida", "Alguma Coisa", 20.50);
-        Produto p2 = new Produto("Comida123", "Alguma Coisa1234", 10.50);
-        Produto p3 = new Produto("Comida", "Alguma Coisa", 20.50);
-        sacolaDeProdutos.addProduto(p1);
-        sacolaDeProdutos.addProduto(p2);
-        sacolaDeProdutos.addProduto(p3);
     }
 
 
@@ -574,49 +564,64 @@ public class TelaInicialConfig implements Initializable{
         isExpandido[1] = !isExpandido[1];
 
     }    
+    
     public void attSacolaProdutos(){
-        int cont = 0;
-        for(Node produto : LateralSacola.lookupAll("#produto-na-sacola")){
-            if (produto != null) {
-                Pane produtoPane = (Pane)produto;
-                Label nome = (Label)produto.lookup("#nome");
-                Label preco = (Label)produto.lookup("#preco");
-                Label quantidade = (Label)produto.lookup("#quantidade");
-                Label bttAdd = (Label)produto.lookup("#add-item");
-                Label bttRemover = (Label)produto.lookup("#remover-item");
-                produtoPane.setVisible(!nome.getText().equals("Nome Completo Do Produto"));
-                boolean produtoEncontrado = false;
+    
+    List<Produto> produtosParaExibir = sacolaDeProdutos.getProdutosUnicosParaExibir();
+    int indiceProdutoExibido = 0; // Índice para a lista de produtos únicos
 
-                if (cont < sacolaDeProdutos.getTamanhoSacola()) {
-                    int valorContAtual = cont;
-                    for(Node produtoAtual : LateralSacola.lookupAll("#produto-na-sacola")){
-                        Pane produtoAtualCompara = (Pane)produtoAtual;
-                        Label nomeAtual = (Label)produtoAtual.lookup("#nome");
-                        if (nomeAtual.getText().equals(sacolaDeProdutos.getProdutoIndex(cont).getNome())) {
-                            quantidade.setText(sacolaDeProdutos.getQuantProduto(nomeAtual.getText())+"");
-                            produtoEncontrado = true;
-                            break;
-                        }
-                    }
-                    if(!produtoEncontrado){
-                        nome.setText(sacolaDeProdutos.getProdutoIndex(cont).getNome());
-                        preco.setText(sacolaDeProdutos.getProdutoIndex(cont).getPreco()+"");
-                        quantidade.setText(sacolaDeProdutos.getQuantProduto(nome.getText())+"");
-                    }
-                    bttAdd.setOnMouseClicked(e -> {
-                        sacolaDeProdutos.addProduto(sacolaDeProdutos.getProdutoIndex(valorContAtual));
-                        attSacolaProdutos();
-                    });
-                    bttRemover.setOnMouseClicked(e -> {
-                        sacolaDeProdutos.removerProduto(sacolaDeProdutos.getProdutoIndex(valorContAtual));
-                        attSacolaProdutos();
-                    });
-                }   
+    // Atualiza o preço total UMA VEZ
+    Label precoTotal = (Label)LateralSacola.lookup("#preco-total");
+    if (precoTotal != null) {
+        precoTotal.setText(sacolaDeProdutos.getValorTotal() + "");
+    }
 
+    for(Node produtoNode : LateralSacola.lookupAll("#produto-na-sacola")){
+        if (produtoNode instanceof Pane) {
+            Pane produtoPane = (Pane)produtoNode;
+            Label nome = (Label)produtoNode.lookup("#nome");
+            Label preco = (Label)produtoNode.lookup("#preco");
+            Label quantidade = (Label)produtoNode.lookup("#quantidade");
+            Label bttAdd = (Label)produtoNode.lookup("#add-item");
+            Label bttRemover = (Label)produtoNode.lookup("#remover-item");
+
+            if (indiceProdutoExibido < produtosParaExibir.size()) {
+                // Há um produto único para exibir neste painel
+                final Produto produtoAtual = produtosParaExibir.get(indiceProdutoExibido);
+                
+                nome.setText(produtoAtual.getNome());
+                preco.setText(String.valueOf(produtoAtual.getPreco()));
+                // Usa o nome para obter a contagem agrupada (corrigindo o problema de quantidade)
+                quantidade.setText(String.valueOf(sacolaDeProdutos.getQuantProduto(produtoAtual.getNome())));
+                produtoPane.setVisible(true);
+                
+                // Adicionar
+                bttAdd.setOnMouseClicked(e -> {
+                    // Adiciona o OBJETO correto, independente de seu índice na lista bruta
+                    sacolaDeProdutos.addProduto(produtoAtual);
+                    attSacolaProdutos(); // Recarrega UI
+                });
+                
+                // Remover
+                bttRemover.setOnMouseClicked(e -> {
+                    // Remove o OBJETO correto
+                    sacolaDeProdutos.removerProduto(produtoAtual);
+                    attSacolaProdutos(); // Recarrega UI
+                });
+                
+                indiceProdutoExibido++; // Passa para o próximo produto único
+            } else {
+                // 6. Limpar e Esconder Painéis não usados
+                nome.setText("Nome Completo Do Produto");
+                preco.setText("");
+                quantidade.setText("");
+                produtoPane.setVisible(false);
             }
-            cont++;
         }
     }
+    Label quantNaSacola = (Label)painelMae.lookup("#quant-itens-sacola");
+    quantNaSacola.setText(String.valueOf(sacolaDeProdutos.getTamanhoSacola()));
+}
 
     public void botaoSairConta(Region valor, int delay){
         Duration duracao = Duration.millis(delay);
@@ -782,7 +787,6 @@ public class TelaInicialConfig implements Initializable{
                     expandir.play();
 
                 });
-                
                 produto.setOnMouseExited(e -> {
                     produtoPane.toBack();
                     Timeline recolher = new Timeline(
@@ -810,7 +814,33 @@ public class TelaInicialConfig implements Initializable{
                     qrCodePagamento.CriarPagamento("0.01", (ImageView)painelMae.lookup("#qrcode-image"));
                     System.out.println(valorTotal);
                 });
+                bttAddItem.setOnMouseClicked(e -> {
+                    String valorTotal = ((Label)produto.lookup("#valor-Real")).getText() +((Label)produto.lookup("#valor-centavo")).getText();
+                    Produto produtoParaAdicionar = new Produto(nome.getText(), descricao.getText(), Double.parseDouble(valorTotal));
+                    sacolaDeProdutos.addProduto(produtoParaAdicionar);
 
+                    Pane blocoPaneTeste = new Pane();
+                    blocoPaneTeste.setPrefSize(25, 25);
+                    blocoPaneTeste.setLayoutX(e.getSceneX());
+                    blocoPaneTeste.setLayoutY(e.getSceneY()-50);
+                    blocoPaneTeste.setStyle("-fx-background-color: rgba(0, 0, 0, 0.7); -fx-background-radius: 20; -fx-border-color: rgba(255, 255, 255, 1); -fx-border-radius: 20;");
+                    //blocoPaneTeste.toFront();
+                    
+                    painelMae.getChildren().add(blocoPaneTeste);
+                    
+                    Timeline timeline = new Timeline(
+                        new KeyFrame(Duration.millis(300), 
+                            new KeyValue(blocoPaneTeste.layoutXProperty(), 750),
+                            new KeyValue(blocoPaneTeste.layoutYProperty(), 65)
+                        )
+                    );
+                    timeline.play();
+                    timeline.setOnFinished(ev -> {
+                        painelMae.getChildren().remove(blocoPaneTeste);
+                        attSacolaProdutos();
+                    });
+
+                });
 
 
                 painelMae.lookup("#painel-qr-code").setOnMouseClicked(e -> {

@@ -17,7 +17,7 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         primaryStage = stage;
         stage.initStyle(StageStyle.UNDECORATED);
-        scene = new Scene(loadFXML("AbaInicial"));
+        scene = new Scene(loadFXML("Login_tela"));
         stage.setResizable(true);
         stage.setScene(scene);
         stage.sizeToScene();

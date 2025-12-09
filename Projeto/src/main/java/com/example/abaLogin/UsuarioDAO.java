@@ -1,4 +1,4 @@
-package com.example.abaLogin; // Ajuste o pacote conforme necessário
+package com.example.abaLogin;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

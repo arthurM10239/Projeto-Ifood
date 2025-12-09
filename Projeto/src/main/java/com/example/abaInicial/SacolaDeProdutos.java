@@ -1,6 +1,11 @@
 package com.example.abaInicial;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 
 public class SacolaDeProdutos {
     private ArrayList<Produto> produtosNaSacola;
@@ -15,10 +20,14 @@ public class SacolaDeProdutos {
     public void addProduto(Produto produto) {
         if(produto != null){
             produtosNaSacola.add(produto);
+            valorTotal += produto.getPreco();
         }
     }
     public void removerProduto(Produto produto) {
-        produtosNaSacola.remove(produto);
+        if(produto != null){
+            produtosNaSacola.remove(produto);
+            valorTotal -= produto.getPreco();
+        }
     }
     
     public Produto getProdutoIndex(int index) {
@@ -46,13 +55,25 @@ public class SacolaDeProdutos {
     }
 
     public double getValorTotal() {
-        for (Produto produto : produtosNaSacola) {
-            valorTotal += produto.getPreco();
-        }
-        return valorTotal;
+        String valorFormatadoComoString = String.format(Locale.US, "%.2f", valorTotal);
+        return Double.parseDouble(valorFormatadoComoString);
     }
     public void setQuantidadeProdutos(int quantidadeProdutos) {
         this.quantidadeProdutos = quantidadeProdutos;
+    }
+
+    public List<Produto> getProdutosUnicosParaExibir() {
+        // Retorna uma lista de Produtos (sem repetição)
+        return new ArrayList<>(getProdutosUnicosPorNome().values());
+    }
+
+    public Map<String, Produto> getProdutosUnicosPorNome() {
+        // Mapeia o nome do produto ao objeto Produto, agrupando-os
+        Map<String, Produto> unicos = new HashMap<>();
+        for (Produto p : produtosNaSacola) { 
+            unicos.put(p.getNome(), p); // Assume que o nome é único o suficiente para agrupamento
+        }
+        return unicos;
     }
 
     

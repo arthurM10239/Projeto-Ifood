@@ -2833,7 +2833,7 @@
             </Pane>
          </children>
       </Pane>
-      <Pane id="sacola-produtos" fx:id="LateralSacola" layoutX="549.0" layoutY="50.0" prefHeight="550.0" prefWidth="250.0" styleClass="aba-sacola-produto">
+      <Pane id="sacola-produtos" fx:id="LateralSacola" layoutX="799.0" layoutY="50.0" prefHeight="550.0" prefWidth="0.0" styleClass="aba-sacola-produto">
          <children>
             <Pane id="produto-na-sacola" layoutX="25.0" layoutY="65.0" prefHeight="50.0" prefWidth="200.0" styleClass="produto-sacola">
                <children>
@@ -3176,14 +3176,14 @@
                   <Font name="Arial Black" size="11.0" />
                </font>
             </Label>
-            <HBox alignment="CENTER" layoutX="103.0" layoutY="481.0" prefHeight="24.0" prefWidth="85.0">
+            <HBox alignment="CENTER_LEFT" layoutX="103.0" layoutY="481.0" prefHeight="24.0" prefWidth="120.0">
                <children>
                   <Label alignment="CENTER" prefHeight="16.0" prefWidth="23.0" text="R$" textFill="WHITE">
                      <font>
                         <Font name="Arial Black" size="11.0" />
                      </font>
                   </Label>
-                  <Label id="preco-total" alignment="CENTER" prefHeight="16.0" prefWidth="46.0" text="100,10" textFill="WHITE">
+                  <Label id="preco-total" alignment="TOP_LEFT" prefHeight="16.0" prefWidth="100.0" text="100,10" textFill="WHITE">
                      <font>
                         <Font name="Arial Black" size="11.0" />
                      </font>
@@ -3194,6 +3194,9 @@
                <font>
                   <Font name="Arial Black" size="13.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Label>
          </children></Pane>
       <Pane fx:id="SacolaProdutos" layoutX="706.0" layoutY="55.0" onMouseClicked="#abrirSacolaProdutos" prefHeight="47.0" prefWidth="85.0" styleClass="sacola-compras">
@@ -3203,7 +3206,7 @@
                   <Image url="@../../Imagens/sacoCompras.png" />
                </image>
             </ImageView>
-            <Label layoutX="50.0" layoutY="1.0" text="0" textFill="WHITE">
+            <Label id="quant-itens-sacola" layoutX="50.0" layoutY="1.0" text="0" textFill="#f5ff00">
                <font>
                   <Font name="Agency FB" size="16.0" />
                </font>
