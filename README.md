@@ -1,5 +1,7 @@
 # <img src="https://img.shields.io/badge/iFood-EA1D2C?style=for-the-badge&logo=ifood&logoColor=white"> IFOOD Clone 
 
+Membros: Arthur Miguel, Lucas Banna, Guilherme Milhomem
+
 >Projeto desenvolvido para a disciplina de Programação 2 do curso de Engenharia de Computação do CESUPA.>
 
 ## 💻Sobre o Projeto
